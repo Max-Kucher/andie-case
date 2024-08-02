@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    dir: 'assets/images',
+    dir: 'public/images',
   },
   i18n: {
     strategy: 'prefix_except_default',

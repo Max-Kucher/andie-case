@@ -33,6 +33,8 @@ useHead({
     </template>
   </Head>
   <Body>
+    <LayoutHeader class="bg-black" />
+
     <main class="min-h-[calc(100dvh-100px)]">
       <slot />
     </main>

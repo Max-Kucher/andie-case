@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 
 useHead({
@@ -11,4 +13,3 @@ useHead({
     <h1 class="text-red-400">Homepage</h1>
   </LayoutContainer>
 </template>
-

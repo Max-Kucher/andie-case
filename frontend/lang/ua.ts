@@ -10,5 +10,18 @@ export default defineI18nLocale(async locale => {
                 title: 'Головна',
             },
         },
+        logo: {
+            title: 'Логотип',
+        },
+        common: {
+            joinCommunity: {
+                button: {
+                    text: 'Приєднатись до спільноти',
+                },
+            },
+        },
+        socials: {
+            telegram: 'Телеграм',
+        },
     }
 })
