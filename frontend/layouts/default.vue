@@ -39,9 +39,7 @@ useHead({
       <slot />
     </main>
 
-<!--  <AuthAside v-show="authAsideOpened" />-->
-
-<!--  <LayoutAppFooter />-->
+    <LayoutFooter />
   </Body>
   </Html>
 </template>

@@ -26,5 +26,10 @@ export default defineI18nLocale(async locale => {
             youtube: 'YouTube',
             x: 'X',
         },
+        footer: {
+            socials: {
+                title: 'Підтримайте нас у:',
+            },
+        },
     }
 })

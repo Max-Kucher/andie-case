@@ -14,7 +14,7 @@ const settings = inject('AppSettings') as Record<string, string>
       :key="`${id}-${social}`"
       :to="settings[`${social}-link`]"
       :title="t(`socials.${social}`)"
-      class="p-1"
+      class="p-2"
     >
       <NuxtImg
         :src="`/socials/${social}.svg`"

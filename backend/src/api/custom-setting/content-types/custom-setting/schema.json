@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "custom_settings",
+  "info": {
+    "singularName": "custom-setting",
+    "pluralName": "custom-settings",
+    "displayName": "CustomSetting"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 64,
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true,
+      "maxLength": 128
+    }
+  }
+}

@@ -12,7 +12,7 @@ const menuItems = computed(() => _menuItems?.filter(item => item.attributes.show
   <nav>
     <ul
       role="menu"
-      class="flex gap-x-7 text-white"
+      class="flex gap-x-7 text-white font-medium text-base"
     >
       <li
         v-for="(menuItem, idx) in menuItems"
