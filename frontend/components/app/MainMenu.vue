@@ -17,10 +17,12 @@ const menuItems = computed(() => _menuItems?.filter(item => item.attributes.show
       <li
         v-for="(menuItem, idx) in menuItems"
         :key="`header-menu-item-${idx}`"
+        role="presentation"
       >
         <NuxtLinkLocale
           :to="menuItem.matchedUrl"
           exact-active-class="text-accent"
+          role="menuitem"
         >
           {{ menuItem.title }}
         </NuxtLinkLocale>

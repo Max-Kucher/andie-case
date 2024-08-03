@@ -1,15 +1,21 @@
 <template>
   <header>
-    <LayoutContainer class="py-7 flex items-center justify-between">
-      <AppLogo class="ml-1.5" />
+    <LayoutContainer>
+      <div class="py-7 flex items-center justify-between">
+        <AppLogo class="ml-1.5" />
 
-      <ButtonsJoinCommunity />
+        <ButtonsJoinCommunity />
+      </div>
+
+      <div class="opacity-30 border-b border-b-white" />
     </LayoutContainer>
 
-    <div class="opacity-30 border-b border-b-white"></div>
-
-    <LayoutContainer class="py-6">
+    <LayoutContainer class="py-6 flex items-center justify-between">
       <AppMainMenu />
+
+      <AppSocialLinks />
     </LayoutContainer>
   </header>
 </template>
+<script setup lang="ts">
+</script>
