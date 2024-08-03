@@ -1,5 +1,0 @@
-
-type GetGeneralSettingsQuery {
-    menuItems: [MenuItem]
-    page: Page
-}

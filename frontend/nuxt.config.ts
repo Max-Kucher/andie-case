@@ -2,11 +2,15 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      backendUrl: process.env.NUXT_ENV_SITE_BACKEND_URL,
+    },
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    "nuxt-graphql-request"
   ],
   image: {
     dir: 'public/images',
@@ -28,11 +32,4 @@ export default defineNuxtConfig({
   css: [
       '~/assets/css/fonts.css',
   ],
-  graphql: {
-    clients: {
-      default: {
-        endpoint: `${process.env.NUXT_ENV_SITE_BACKEND_URL}/graphql`,
-      },
-    },
-  },
 })

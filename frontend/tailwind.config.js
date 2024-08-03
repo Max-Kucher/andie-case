@@ -6,6 +6,9 @@ export default {
         'light-black': {
           DEFAULT: '#1A1919',
         },
+        accent: {
+          DEFAULT: '#FFB54D',
+        },
       },
       fontFamily: {
         sans: ['Gilroy', 'Arial', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],

@@ -1,7 +1,0 @@
-
-type MenuItem {
-    title: String!
-    url: String!
-    showInHeader: Boolean
-    showInFooter: Boolean
-}

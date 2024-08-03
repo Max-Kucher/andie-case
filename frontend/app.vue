@@ -1,18 +1,35 @@
 <script setup lang="ts">
-import schema from '~/gql/schemas/GetGeneralSettingsQuery.gql'
-// import GetGeneralSettingsQuery from '~/gql/GetGeneralSettingsQuery.graphql'
+import { provide } from 'vue'
+import type MenuItem from '~/@types/MenuItem'
 
-const { $graphql } = useNuxtApp();
+const { localeProperties } = useI18n()
 
-console.log($graphql.default)
+const query = `
+  query MenuItems($locale: I18NLocaleCode!) {
+      menuItems(locale: $locale, sort: "priority:desc") {
+          data {
+              attributes {
+                  title
+                  matchedUrl
+                  showInHeader
+                  showInFooter
+              }
+          }
+      }
+  }
+`
 
-const { data: generalSettings } = await useAsyncData('generalSettings', async () => {
-  return await $graphql.default.request(schema)
+const { data: menuItems } = await useAPI<{ data: { menuItems: { data: MenuItem[] } } }>('/graphql', {
+  method: 'POST',
+  body: {
+    query,
+    variables: {
+      locale: localeProperties.value.iso,
+    },
+  },
 })
 
-watch(generalSettings, newVal => {
-  console.log(newVal)
-})
+provide('MenuItems', menuItems.value.data.menuItems.data)
 </script>
 
 <template>

@@ -1,6 +1,0 @@
-
-type Page {
-    title: String!
-    description: String
-    ogImage: Image
-}

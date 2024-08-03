@@ -14,10 +14,6 @@
     "@nuxtjs/i18n": "^8.3.3",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.12.4",
-    "nuxt-graphql-request": "^8.1.0",
     "vue": "latest"
-  },
-  "devDependencies": {
-    "graphql": "^16.9.0"
   }
 }

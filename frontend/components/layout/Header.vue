@@ -9,7 +9,7 @@
     <div class="opacity-30 border-b border-b-white"></div>
 
     <LayoutContainer class="py-6">
-
+      <AppMainMenu />
     </LayoutContainer>
   </header>
 </template>
