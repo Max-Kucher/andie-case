@@ -4,7 +4,7 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <p class="uppercase text-white text-sm mb-1">
+    <p class="uppercase text-sm mb-1">
       {{ t('footer.socials.title') }}
     </p>
 

@@ -31,7 +31,9 @@ const query = `
 interface GeneralSettingsResponse {
   data: {
     menuItems: {
-      data: MenuItem[]
+      data: {
+        attributes: MenuItem
+      }[]
     }
     customSettings: {
       data: {

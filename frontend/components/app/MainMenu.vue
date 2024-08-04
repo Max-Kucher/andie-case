@@ -2,7 +2,7 @@
 import { inject } from 'vue'
 import type MenuItem from '~/@types/MenuItem'
 
-const _menuItems = inject<MenuItem[]>('MenuItems')
+const _menuItems = inject<{ attributes: MenuItem }[]>('MenuItems')
 const menuItems = computed(() => _menuItems?.filter(item => item.attributes.showInHeader).map(item => ({
   ...item.attributes,
 })))

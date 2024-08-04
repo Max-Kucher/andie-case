@@ -1,14 +1,18 @@
 <template>
-  <footer class="bg-black">
-    <LayoutContainer class="pt-24 pb-36 flex justify-between">
-      <div class="pt-1">
+  <footer class="bg-black text-white">
+    <LayoutContainer class="pt-24 pb-36 grid grid-cols-3 gap-5">
+      <div class="pt-5">
         <AppLogo class="mb-10" />
 
         <LayoutFooterSocials />
       </div>
 
-      <div class="pt-1 order-1 lg:order-2">
-        <ButtonsJoinCommunity />
+      <div class="order-2 lg:order-1">
+        <AppFooterMenu />
+      </div>
+
+      <div class="pt-5 order-1 lg:order-2">
+        <ButtonsJoinCommunity class="text-black ml-auto w-max" />
       </div>
     </LayoutContainer>
   </footer>

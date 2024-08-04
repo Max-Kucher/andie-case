@@ -9,6 +9,9 @@ export default {
         accent: {
           DEFAULT: '#FFB54D',
         },
+        'faded-text': {
+          DEFAULT: '#424242',
+        },
       },
       fontFamily: {
         sans: ['Gilroy', 'Arial', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
