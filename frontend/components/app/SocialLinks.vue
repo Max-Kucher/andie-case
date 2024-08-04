@@ -2,12 +2,13 @@
 const id = useId()
 const { t } = useI18n()
 
-const settings = inject('AppSettings') as Record<string, string>
+const settings = inject<Record<string, string>>('AppSettings')
 </script>
 
 <template>
   <div class="flex items-center gap-x-2.5">
     <NuxtLink
+      v-if="settings"
       v-for="social in ['x', 'instagram', 'youtube']"
       :key="`${id}-${social}`"
       :to="settings[`${social}-link`]"

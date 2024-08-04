@@ -11,6 +11,10 @@ export default {
         },
         'faded-text': {
           DEFAULT: '#424242',
+          light: '#7B7B7B',
+        },
+        placeholder: {
+          DEFAULT: '#D9D9D9',
         },
       },
       fontFamily: {

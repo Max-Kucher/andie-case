@@ -3,7 +3,6 @@ import type MenuItem from '~/@types/MenuItem'
 import type SettingItem from '~/@types/SettingItem'
 import type PageItem from '~/@types/PageItem'
 import type BackendImage from '~/@types/BackendImage'
-import { provide } from 'vue'
 
 const { localeProperties } = useI18n()
 
@@ -82,22 +81,32 @@ const { data: generalSettings } = await useAPI<GeneralSettingsResponse>('/graphq
   },
 })
 
-provide('MenuItems', generalSettings.value.data.menuItems.data)
+watch(generalSettings, newVal => {
+  if (newVal?.data.menuItems !== undefined) {
+    provide('MenuItems', newVal.data.menuItems.data)
+  }
 
-const customSettings = generalSettings.value.data.customSettings.data.reduce((acc: Record<string, string>, item: { attributes: SettingItem }) => {
-  acc[item.attributes.name] = item.attributes.value
+  if (newVal?.data.customSettings !== undefined) {
+    const customSettings = newVal.data.customSettings.data.reduce((acc: Record<string, string>, item: {
+      attributes: SettingItem
+    }) => {
+      acc[item.attributes.name] = item.attributes.value
 
-  return acc
-}, {} as Record<string, string>)
-provide('AppSettings', customSettings)
+      return acc
+    }, {} as Record<string, string>)
+    provide('AppSettings', customSettings)
+  }
 
-const pages = generalSettings.value.data.pages.data.map(page => ({
-  ...page.attributes,
-  ogImage: {
-    ...(page.attributes.ogImage.data?.attributes ?? {}),
-  },
-}))
-provide('PagesSettings', pages)
+  if (newVal?.data.pages !== undefined) {
+    const pages = newVal.data.pages.data.map(page => ({
+      ...page.attributes,
+      ogImage: {
+        ...(page.attributes.ogImage.data?.attributes ?? {}),
+      },
+    }))
+    provide('PagesSettings', pages)
+  }
+}, { immediate: true })
 </script>
 
 <template>

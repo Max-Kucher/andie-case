@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-black text-white">
-    <LayoutContainer class="pt-24 pb-36 grid grid-cols-3 gap-5">
+    <LayoutContainer class="pt-24 pb-36 app-layout-cols">
       <div class="pt-5">
         <AppLogo class="mb-10" />
 

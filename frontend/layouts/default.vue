@@ -11,11 +11,15 @@ const head = useLocaleHead({
 })
 
 const defaultTitle = t((route.meta.title ?? 'layouts.title') as string)
-const pagesSettings = inject('PagesSettings') as PageItem[]
+const pagesSettings = inject<PageItem[]>('PagesSettings')
 
 const runtimeConfig = useRuntimeConfig()
 
 const headParams = computed(() => {
+  if (pagesSettings === undefined) {
+    return {}
+  }
+
   const routeName = route.name?.split('___')[0]
 
   const pageSettings = pagesSettings.find(page => {
@@ -63,7 +67,7 @@ useHead(headParams)
   <Body>
     <LayoutHeader class="bg-black" />
 
-    <main class="min-h-[calc(100dvh-100px)]">
+    <main>
       <slot />
     </main>
 
