@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { provide } from 'vue'
 import type MenuItem from '~/@types/MenuItem'
 import type SettingItem from '~/@types/SettingItem'
+import type PageItem from '~/@types/PageItem'
+import type BackendImage from '~/@types/BackendImage'
+import { provide } from 'vue'
 
 const { localeProperties } = useI18n()
 
 const query = `
-  query MenuItems($locale: I18NLocaleCode!) {
+  query GeneralSettings($locale: I18NLocaleCode!) {
     menuItems(locale: $locale, sort: "priority:desc") {
       data {
         attributes {
@@ -25,6 +27,22 @@ const query = `
         }
       }
     }
+    pages {
+      data {
+        attributes {
+          title
+          description
+          name
+          ogImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -40,10 +58,21 @@ interface GeneralSettingsResponse {
         attributes: SettingItem
       }[]
     }
+    pages: {
+      data: {
+        attributes: PageItem & {
+          ogImage: {
+            data: {
+              attributes: BackendImage
+            }
+          }
+        }
+      }[]
+    }
   }
 }
 
-const { data: menuItems } = await useAPI<GeneralSettingsResponse>('/graphql', {
+const { data: generalSettings } = await useAPI<GeneralSettingsResponse>('/graphql', {
   method: 'POST',
   body: {
     query,
@@ -53,14 +82,22 @@ const { data: menuItems } = await useAPI<GeneralSettingsResponse>('/graphql', {
   },
 })
 
-provide('MenuItems', menuItems.value.data.menuItems.data)
+provide('MenuItems', generalSettings.value.data.menuItems.data)
 
-const customSettings = menuItems.value.data.customSettings.data.reduce((acc: Record<string, string>, item: { attributes: SettingItem }) => {
+const customSettings = generalSettings.value.data.customSettings.data.reduce((acc: Record<string, string>, item: { attributes: SettingItem }) => {
   acc[item.attributes.name] = item.attributes.value
 
   return acc
 }, {} as Record<string, string>)
 provide('AppSettings', customSettings)
+
+const pages = generalSettings.value.data.pages.data.map(page => ({
+  ...page.attributes,
+  ogImage: {
+    ...(page.attributes.ogImage.data?.attributes ?? {}),
+  },
+}))
+provide('PagesSettings', pages)
 </script>
 
 <template>

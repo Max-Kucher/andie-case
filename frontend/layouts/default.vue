@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type PageItem from '~/@types/PageItem'
+
 const route = useRoute()
 const { t } = useI18n()
 
@@ -9,17 +11,43 @@ const head = useLocaleHead({
 })
 
 const defaultTitle = t((route.meta.title ?? 'layouts.title') as string)
+const pagesSettings = inject('PagesSettings') as PageItem[]
 
-useHead({
-  titleTemplate: (titleChunk) => {
-    return titleChunk
-        ? `${titleChunk} - ${defaultTitle}` : defaultTitle;
-  },
-  meta: [
-    { name: 'description', content: t('layouts.metaDescription') }
-  ],
+const runtimeConfig = useRuntimeConfig()
+
+const headParams = computed(() => {
+  const routeName = route.name?.split('___')[0]
+
+  const pageSettings = pagesSettings.find(page => {
+    return page.name === routeName
+  })
+
+  const title = `${pageSettings?.title ?? ''} - ${defaultTitle}`
+
+  const head = {
+    title,
+    meta: [
+      { name: 'theme-color', content: '#000000' },
+      { property: 'og:title', content: title },
+    ],
+  }
+
+  if (pageSettings?.description !== undefined && pageSettings.description?.length) {
+    head.meta.push({ name: 'description', content: pageSettings.description })
+  }
+
+  if (pageSettings?.description !== undefined && pageSettings.description?.length) {
+    head.meta.push({ property: 'og:description', content: pageSettings.description })
+  }
+
+  if (pageSettings?.ogImage !== undefined && pageSettings.ogImage.url !== undefined) {
+    head.meta.push({ property: 'og:description', content: buildBackendImageUrl(runtimeConfig, pageSettings.ogImage.url) })
+  }
+
+  return head
 })
 
+useHead(headParams)
 </script>
 
 <template>

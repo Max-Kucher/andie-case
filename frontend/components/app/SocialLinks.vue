@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { inject } from 'vue'
-
 const id = useId()
 const { t } = useI18n()
 

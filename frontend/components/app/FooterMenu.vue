@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { inject } from 'vue'
 import type MenuItem from '~/@types/MenuItem'
 
 const _menuItems = inject<{ attributes: MenuItem }[]>('MenuItems')
