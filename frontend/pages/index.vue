@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type NewsItem from '~/@types/NewsItem'
 import type BackendImage from '~/@types/BackendImage'
+import type NewsItem from '~/@types/NewsItem'
+import type CriminalProceedingItem from '~/@types/CriminalProceedingItem'
 
 const { localeProperties } = useI18n()
 
@@ -50,6 +51,12 @@ interface IndexPageResponse {
         }
       }[]
     }
+    criminalProceedings: {
+      data: {
+        id: number
+        attributes: CriminalProceedingItem
+      }[]
+    }
   }
 }
 
@@ -77,8 +84,12 @@ watch(data, newVal => {
     })))
   }
 
-  console.log(newVal.data)
-
+  if (newVal.data.criminalProceedings !== undefined) {
+    provide('criminalProceedings', newVal.data.criminalProceedings.data.map(item => ({
+      ...item.attributes,
+      id: item.id,
+    })))
+  }
 }, { immediate: true })
 </script>
 
@@ -87,5 +98,7 @@ watch(data, newVal => {
     <NewsWideBanner />
 
     <HomeWhoIsAndy />
+
+    <HomeCriminalProceedings />
   </div>
 </template>

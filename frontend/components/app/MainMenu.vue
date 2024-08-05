@@ -11,7 +11,7 @@ const menuItems = computed(() => _menuItems?.filter(item => item.attributes.show
   <nav>
     <ul
       role="menu"
-      class="flex gap-x-7 text-white font-medium text-base"
+      class="flex gap-x-5 text-white font-medium text-base -ml-1"
     >
       <li
         v-for="(menuItem, idx) in menuItems"
@@ -20,6 +20,7 @@ const menuItems = computed(() => _menuItems?.filter(item => item.attributes.show
       >
         <NuxtLinkLocale
           :to="menuItem.matchedUrl"
+          class="transition-colors hover:text-accent p-1"
           exact-active-class="text-accent"
           role="menuitem"
         >

@@ -37,5 +37,12 @@ export default defineI18nLocale(async locale => {
             },
         },
         readFull: 'Читати повністю',
+        criminalProceedings: {
+            title: 'Кримінальні провадження',
+            block: {
+                title: 'Кримінальні{0}провадження',
+                button: 'Дивитись всі провадження',
+            }
+        },
     }
 })
