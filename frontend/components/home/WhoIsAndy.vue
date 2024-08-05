@@ -3,10 +3,10 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div class="bg-light-black">
+  <section class="bg-light-black">
     <LayoutContainer class="app-layout-cols lg:pt-48 lg:pb-32">
       <div>
-        <h2 class="text-white font-medium text-4xl">
+        <h2 class="text-white font-druk-wide font-medium text-4xl">
           {{ t('whoIsAndy.title') }}
         </h2>
 
@@ -23,15 +23,19 @@ const { t } = useI18n()
             {{ t('whoIsAndy.short.text_3') }}
           </p>
         </div>
+
+        <ButtonsReadMore
+          :to="{ name: 'about-andy' }"
+          class="bg-accent mt-16"
+        />
+      </div>
+      <div>
+        <div class="bg-placeholder min-h-[645px]"></div>
       </div>
 
       <div>
         <div class="bg-placeholder min-h-96"></div>
       </div>
-
-      <div>
-        <div class="bg-placeholder min-h-64"></div>
-      </div>
     </LayoutContainer>
-  </div>
+  </section>
 </template>

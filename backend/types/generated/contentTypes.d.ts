@@ -788,6 +788,85 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCriminalProceedingCriminalProceeding
+  extends Schema.CollectionType {
+  collectionName: 'criminal_proceedings';
+  info: {
+    singularName: 'criminal-proceeding';
+    pluralName: 'criminal-proceedings';
+    displayName: 'Criminal proceeding';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    viewsCount: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Attribute.Media<'images', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::criminal-proceeding.criminal-proceeding',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::criminal-proceeding.criminal-proceeding',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::criminal-proceeding.criminal-proceeding',
+      'oneToMany',
+      'api::criminal-proceeding.criminal-proceeding'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCustomSettingCustomSetting extends Schema.CollectionType {
   collectionName: 'custom_settings';
   info: {
@@ -1089,6 +1168,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::criminal-proceeding.criminal-proceeding': ApiCriminalProceedingCriminalProceeding;
       'api::custom-setting.custom-setting': ApiCustomSettingCustomSetting;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::news-item.news-item': ApiNewsItemNewsItem;

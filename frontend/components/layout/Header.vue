@@ -2,7 +2,7 @@
   <header>
     <LayoutContainer>
       <div class="py-7 flex items-center justify-between">
-        <AppLogo class="ml-1.5" />
+        <AppLogo class="text-white" />
 
         <ButtonsJoinCommunity />
       </div>

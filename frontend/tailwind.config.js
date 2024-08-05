@@ -19,6 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['Gilroy', 'Arial', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+        'druk-wide': ['Druk Wide Cyr', 'Gilroy', 'Arial', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
       }
     },
   },

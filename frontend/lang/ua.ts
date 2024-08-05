@@ -16,7 +16,7 @@ export default defineI18nLocale(async locale => {
 
         },
         logo: {
-            title: 'Логотип',
+            title: 'Справа Andy',
         },
         common: {
             joinCommunity: {
@@ -36,5 +36,6 @@ export default defineI18nLocale(async locale => {
                 title: 'Підтримайте нас у:',
             },
         },
+        readFull: 'Читати повністю',
     }
 })

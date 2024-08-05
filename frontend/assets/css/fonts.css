@@ -1,5 +1,14 @@
 
 @font-face {
+    font-family: 'Druk Wide Cyr';
+    src: url('./../fonts/druk-wide-cyr-medium.woff2') format('woff2'),
+        url('./../fonts/druk-wide-cyr-medium.ttf') format('truetype'),
+        url('./../fonts/druk-wide-cyr-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Gilroy';
     src: url('./../fonts/Gilroy-Bold.woff2') format('woff2'),
     url('./../fonts/Gilroy-Bold.woff') format('woff'),

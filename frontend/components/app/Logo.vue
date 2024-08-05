@@ -17,13 +17,9 @@ const title = t('logo.title')
   <component
       :is="props.link ? nuxtLink : 'div'"
       :to="props.link ? { name: 'index' }  : null"
-      class="block"
-  >
-    <NuxtImg
-      src="/logo.svg"
       :title="title"
-      :alt="title"
-      class="w-[227px]"
-    />
+      class="block uppercase font-druk-wide font-medium text-[22px] leading-none"
+  >
+    {{ title }}
   </component>
 </template>

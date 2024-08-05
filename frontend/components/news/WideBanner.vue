@@ -18,34 +18,35 @@ const runtimeConfig = useRuntimeConfig()
     <NuxtPicture
       v-if="banner.image"
       :src="buildBackendImageUrl(runtimeConfig, banner.image.url)"
-      class="object-fill absolute inset-0 w-full h-full"
+      class="object-fill absolute inset-0"
       :imgAttrs="{
-        class: 'object-fill absolute inset-0 w-full h-full'
+        class: 'object-fill absolute w-full h-full'
       }"
     />
 
-    <LayoutContainer class="app-layout-cols relative z-10">
+    <div class="absolute inset-0 bg-black opacity-30 z-10" />
+
+    <LayoutContainer class="app-layout-cols relative z-20">
       <div class="font-medium col-span-2 lg:mt-36 lg:mb-24">
-        <div :class="{ '-m-5 p-5 rounded-lg bg-placeholder/35': banner.image }">
-          <div class="flex gap-x-8 text-xl mb-8">
-            <time :datetime="banner.createdAt">
-              {{ formatDate('H:i d.m.Y', banner.createdAt) }}
-            </time>
+        <div class="flex gap-x-8 text-xl mb-8">
+          <time :datetime="banner.createdAt">
+            {{ formatDate('H:i d.m.Y', banner.createdAt) }}
+          </time>
 
-            <div class="flex gap-1.5">
-              <NuxtImg
-                src="/icons/eye.svg"
-                :width="22"
-              />
+          <div class="flex gap-1.5">
+            <NuxtImg
+              src="/icons/eye.svg"
+              :alt="banner.viewsCount.toString()"
+              :width="22"
+            />
 
-              {{ banner.viewsCount }}
-            </div>
+            {{ banner.viewsCount }}
           </div>
-
-          <h1>
-            {{ banner.title }}
-          </h1>
         </div>
+
+        <h1>
+          {{ banner.title }}
+        </h1>
       </div>
     </LayoutContainer>
   </NuxtLinkLocale>
