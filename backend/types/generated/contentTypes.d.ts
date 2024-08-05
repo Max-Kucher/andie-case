@@ -795,6 +795,7 @@ export interface ApiCriminalProceedingCriminalProceeding
     singularName: 'criminal-proceeding';
     pluralName: 'criminal-proceedings';
     displayName: 'Criminal proceeding';
+    description: '';
   };
   options: {
     draftAndPublish: true;

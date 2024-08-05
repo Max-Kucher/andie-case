@@ -24,6 +24,15 @@ query IndexPage($locale: I18NLocaleCode!) {
       }
     }
   }
+  criminalProceedings(locale: $locale, sort: "createdAt:desc", pagination: { pageSize: 5 }) {
+    data {
+      id
+      attributes {
+        title
+        description
+      }
+    }
+  }
 }
 `
 
@@ -67,6 +76,9 @@ watch(data, newVal => {
       },
     })))
   }
+
+  console.log(newVal.data)
+
 }, { immediate: true })
 </script>
 
