@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type BackendImage from '~/@types/BackendImage'
-import type NewsItem from '~/@types/NewsItem'
-import type CriminalProceedingItem from '~/@types/CriminalProceedingItem'
+import type IndexPageGraphqlReq from '~/@types/Requests/IndexPageGraphqlReq'
 
 const { localeProperties } = useI18n()
 
@@ -34,33 +32,27 @@ query IndexPage($locale: I18NLocaleCode!) {
       }
     }
   }
-}
-`
-
-interface IndexPageResponse {
-  data: {
-    newsItems: {
-      data: {
-        id: number
-        attributes: NewsItem & {
-          image: {
-            data: {
-              attributes: BackendImage
+  caseProgressItems(locale: $locale, sort: "createdAt:desc", pagination: { pageSize: 8 }) {
+    data {
+      id
+      attributes {
+        title
+        description
+        createdAt
+        images(pagination: { pageSize: 1 }) {
+          data {
+            attributes {
+              url
             }
           }
         }
-      }[]
-    }
-    criminalProceedings: {
-      data: {
-        id: number
-        attributes: CriminalProceedingItem
-      }[]
+      }
     }
   }
 }
+`
 
-const { data } = await useAPI<IndexPageResponse>('/graphql', {
+const { data } = await useAPI<IndexPageGraphqlReq>('/graphql', {
   method: 'POST',
   body: {
     query,
@@ -90,6 +82,8 @@ watch(data, newVal => {
       id: item.id,
     })))
   }
+
+  // console.log(newVal.data)
 }, { immediate: true })
 </script>
 

@@ -788,6 +788,88 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCaseProgressItemCaseProgressItem
+  extends Schema.CollectionType {
+  collectionName: 'case_progress_items';
+  info: {
+    singularName: 'case-progress-item';
+    pluralName: 'case-progress-items';
+    displayName: 'Case progress item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Attribute.Media<'images', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    viewsCount: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::case-progress-item.case-progress-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::case-progress-item.case-progress-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::case-progress-item.case-progress-item',
+      'oneToMany',
+      'api::case-progress-item.case-progress-item'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCriminalProceedingCriminalProceeding
   extends Schema.CollectionType {
   collectionName: 'criminal_proceedings';
@@ -807,10 +889,14 @@ export interface ApiCriminalProceedingCriminalProceeding
   };
   attributes: {
     title: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     viewsCount: Attribute.Integer &
       Attribute.Required &
@@ -1169,6 +1255,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::case-progress-item.case-progress-item': ApiCaseProgressItemCaseProgressItem;
       'api::criminal-proceeding.criminal-proceeding': ApiCriminalProceedingCriminalProceeding;
       'api::custom-setting.custom-setting': ApiCustomSettingCustomSetting;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;

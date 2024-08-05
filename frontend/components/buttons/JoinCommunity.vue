@@ -4,7 +4,7 @@ const { t } = useI18n()
 
 <template>
   <NuxtLink
-    class="flex items-center bg-white gap-2 rounded-[10px] py-2 px-2.5 font-medium text-lg"
+    class="flex items-center bg-white gap-2 rounded-[10px] py-2 px-2.5 font-medium text-lg transition-colors hover:bg-white/95"
     to="https://t.me/max_cscart"
     target="_blank"
   >
