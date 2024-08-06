@@ -77,13 +77,12 @@ watch(data, newVal => {
   }
 
   if (newVal.data.criminalProceedings !== undefined) {
-    provide('criminalProceedings', newVal.data.criminalProceedings.data.map(item => ({
-      ...item.attributes,
-      id: item.id,
-    })))
+    provide('criminalProceedings', transformCriminalProceedingsResponse(newVal.data.criminalProceedings.data))
   }
 
-  // console.log(newVal.data)
+  if (newVal.data.caseProgressItems !== undefined) {
+    provide('caseProgressItems', transformCaseProgressItemResponse(newVal.data.caseProgressItems.data))
+  }
 }, { immediate: true })
 </script>
 
@@ -94,5 +93,7 @@ watch(data, newVal => {
     <HomeWhoIsAndy />
 
     <HomeCriminalProceedings />
+
+    <HomeCaseProgressScroller />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type CriminalProceedingItem from '~/@types/CriminalProceedingItem'
+import type { CriminalProceedingItem } from '~/@types/CriminalProceedingItem'
 
 const criminalProceedings = inject<CriminalProceedingItem[]>('criminalProceedings')
 
@@ -14,7 +14,7 @@ const { t } = useI18n()
       keypath="criminalProceedings.block.title"
       scope="global"
       tag="h3"
-      class="font-druk-wide font-medium text-4xl"
+      class="app-header"
     >
       <br />
     </I18nT>
@@ -28,13 +28,13 @@ const { t } = useI18n()
         <summary class="marker:content-none flex items-center justify-between text-2xl font-medium py-5 cursor-pointer">
           {{ item.title }}
 
-          <div class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full">
-            <div class="absolute bg-black rounded" />
-            <div class="absolute bg-black rounded transition-transform" />
-          </div>
+          <span class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full">
+            <span class="absolute bg-black rounded" />
+            <span class="absolute bg-black rounded transition-transform" />
+          </span>
         </summary>
 
-        <div class="prose-base" v-html="item.description" />
+        <div class="prose-base" v-html="createShortDescription(item.description, 1300)" />
 
         <ButtonsReadMore
           :to="{ name: 'criminal-proceedings-id', params: { id: item.id } }"
@@ -60,7 +60,7 @@ details[open] {
   @apply pb-5;
 }
 
-.mc-summary-btn div {
+.mc-summary-btn span {
   height: 3px;
   width: 50%;
   top: 50%;
@@ -68,7 +68,7 @@ details[open] {
   transform: translate(-50%, -50%);
 }
 
-details[open] .mc-summary-btn div:last-child {
+details[open] .mc-summary-btn span:last-child {
   transform: translate(-50%, -50%) rotateZ(90deg);
 }
 </style>

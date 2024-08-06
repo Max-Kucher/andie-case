@@ -6,9 +6,15 @@ import type {
     IdentifiableEntity,
 } from '~/@types/BlankEntity'
 
-export default interface CriminalProceedingItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
+export interface CriminalProceedingItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
     title: string
     description: string
     images: BackendImage[]
     viewsCount: number
 }
+
+export interface CriminalProceedingItemResponse {
+    id: number
+    attributes: CriminalProceedingItem
+}
+

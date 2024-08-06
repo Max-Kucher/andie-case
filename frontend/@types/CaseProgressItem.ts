@@ -6,9 +6,20 @@ import type {
     IdentifiableEntity,
 } from '~/@types/BlankEntity'
 
-export default interface CaseProgressItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
+export interface CaseProgressItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
     title: string
     description: string
     images: BackendImage[]
     viewsCount: number
+}
+
+export interface CaseProgressItemResponse {
+    id: number
+    attributes: CaseProgressItem & {
+        image: {
+            data: {
+                attributes: BackendImage
+            }[]
+        }
+    }
 }

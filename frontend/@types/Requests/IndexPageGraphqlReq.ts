@@ -1,7 +1,7 @@
 import type BackendImage from '~/@types/BackendImage'
 import type NewsItem from '~/@types/NewsItem'
-import type CaseProgressItem from '~/@types/CaseProgressItem'
-import type CriminalProceedingItem from '~/@types/CriminalProceedingItem'
+import type { CaseProgressItemResponse } from '~/@types/CaseProgressItem'
+import type { CriminalProceedingItemResponse } from '~/@types/CriminalProceedingItem'
 
 export default interface IndexPageGraphqlReq {
     data: {
@@ -18,22 +18,10 @@ export default interface IndexPageGraphqlReq {
             }[]
         }
         criminalProceedings: {
-            data: {
-                id: number
-                attributes: CriminalProceedingItem
-            }[]
+            data: CriminalProceedingItemResponse[]
         }
         caseProgressItems: {
-            data: {
-                id: number
-                attributes: CaseProgressItem & {
-                    image: {
-                        data: {
-                            attributes: BackendImage
-                        }[]
-                    }
-                }
-            }[]
+            data: CaseProgressItemResponse[]
         }
     }
 }

@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxtjs/i18n',
+    'nuxt-swiper',
   ],
   image: {
     dir: 'public/images',
@@ -41,4 +42,7 @@ export default defineNuxtConfig({
   css: [
       '~/assets/css/fonts.css',
   ],
+  swiper: {
+    modules: ['navigation', 'pagination', 'parallax'],
+  },
 })

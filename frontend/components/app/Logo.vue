@@ -18,7 +18,7 @@ const title = t('logo.title')
       :is="props.link ? nuxtLink : 'div'"
       :to="props.link ? { name: 'index' }  : null"
       :title="title"
-      class="block uppercase font-druk-wide font-medium text-[22px] leading-none transition-colors hover:text-accent/95"
+      class="block uppercase font-druk-wide font-medium text-[22px] leading-none transition-colors hover:text-white/90"
   >
     {{ title }}
   </component>

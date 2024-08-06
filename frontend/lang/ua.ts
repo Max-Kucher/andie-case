@@ -44,5 +44,11 @@ export default defineI18nLocale(async locale => {
                 button: 'Дивитись всі провадження',
             }
         },
+        caseProgress: {
+            title: 'Хід справи',
+            block: {
+                readMore: 'Дивитися хід справи',
+            },
+        },
     }
 })

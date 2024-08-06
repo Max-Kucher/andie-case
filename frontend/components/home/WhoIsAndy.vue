@@ -6,9 +6,9 @@ const { t } = useI18n()
   <section class="bg-light-black">
     <LayoutContainer class="app-layout-cols lg:pt-48 lg:pb-32">
       <div>
-        <h2 class="text-white font-druk-wide font-medium text-4xl">
+        <h3 class="text-white app-header">
           {{ t('whoIsAndy.title') }}
-        </h2>
+        </h3>
 
         <div class="text-faded-text-light text-lg font-medium mt-12 space-y-4">
           <p>
