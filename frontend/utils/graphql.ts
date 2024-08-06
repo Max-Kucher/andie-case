@@ -23,5 +23,8 @@ export const transformCaseProgressItemResponse = (caseProgressItemResponse: Case
     return caseProgressItemResponse.map(item => ({
         ...item.attributes,
         id: item.id,
+        images: item.attributes?.images.data.map(imgItem => ({
+            ...imgItem.attributes,
+        })) ?? []
     }))
 }

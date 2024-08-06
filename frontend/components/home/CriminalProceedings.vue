@@ -34,7 +34,7 @@ const { t } = useI18n()
           </span>
         </summary>
 
-        <div class="prose-base" v-html="createShortDescription(item.description, 1300)" />
+        <div class="prose-base" v-html="createShortDescription(item.description, 8)" />
 
         <ButtonsReadMore
           :to="{ name: 'criminal-proceedings-id', params: { id: item.id } }"

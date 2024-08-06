@@ -16,7 +16,7 @@ export interface CaseProgressItem extends BlankEntity, PublishableEntity, I18NEn
 export interface CaseProgressItemResponse {
     id: number
     attributes: CaseProgressItem & {
-        image: {
+        images: {
             data: {
                 attributes: BackendImage
             }[]

@@ -1,5 +1,5 @@
 import type { RuntimeConfig } from 'nuxt/schema'
-import { parseDocument } from 'htmlparser2'
+import { parseDocument, DomHandler, DomUtils, Parser } from 'htmlparser2'
 import { default as serializeDocument } from 'dom-serializer'
 
 export function* arrayChunk<T>(arr: any[], n: number): Generator<T[], void> {
@@ -12,8 +12,22 @@ export const buildBackendImageUrl = (runtimeConfig: RuntimeConfig, imagePath: st
     return `${runtimeConfig.public.backendUrl}${imagePath}`
 }
 
-export const createShortDescription = (val: string, length: number = 255): string => {
-    const fragment = val.slice(0, length) + '...';
+export const createShortDescription = (val: string, sentences: number = 2): string => {
+    const fragment = val.slice(0, val.split('.', sentences).join('.').length);
 
     return serializeDocument(parseDocument(fragment))
+}
+
+export const stripTags = (html: string): string => {
+    const handler = new DomHandler((error, dom) => {
+        if (error) {
+            throw new Error('Error while parsing HTML')
+        }
+    })
+
+    const parser = new Parser(handler)
+    parser.write(html)
+    parser.end()
+
+    return DomUtils.textContent(handler.dom)
 }

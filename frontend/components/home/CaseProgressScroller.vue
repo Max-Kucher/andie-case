@@ -22,7 +22,25 @@ const { t } = useI18n()
         </NuxtLinkLocale>
       </div>
 
-      {{ JSON.stringify(caseProgressItems) }}
+      <Swiper
+        loop
+        :slides-per-view="3"
+        :space-between="22"
+        :modules="[SwiperPagination, SwiperNavigation, SwiperParallax]"
+        :pagination="{
+          enabled: true,
+        }"
+        :navigation="{
+          enabled: true,
+        }"
+      >
+        <SwiperSlide
+          v-for="i in [0, 1, 2, 3, 4, 5, 6, 7, 8]"
+          :key="`case-progress-item-${i}`"
+        >
+          <CaseProgressListItem :item="caseProgressItems[0]" />
+        </SwiperSlide>
+      </Swiper>
     </LayoutContainer>
   </section>
 </template>
