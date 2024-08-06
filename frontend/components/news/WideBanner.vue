@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type NewsItem from '~/@types/NewsItem'
+import type { NewsItem } from '~/@types/NewsItem'
 
 const latestNewsItems = inject<NewsItem[]>('latestNewsItems')
 

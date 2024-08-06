@@ -67,13 +67,7 @@ const { data } = await useAPI<IndexPageGraphqlReq>('/graphql', {
 
 watch(data, newVal => {
   if (newVal.data.newsItems !== undefined) {
-    provide('latestNewsItems', newVal.data.newsItems.data.map(newsItem => ({
-      ...newsItem.attributes,
-      id: newsItem.id,
-      image: {
-        ...(newsItem.attributes.image.data?.attributes ?? {}),
-      },
-    })))
+    provide('latestNewsItems', transformNewsResponse(newVal.data.newsItems.data))
   }
 
   if (newVal.data.criminalProceedings !== undefined) {

@@ -6,9 +6,20 @@ import type {
     IdentifiableEntity,
 } from '~/@types/BlankEntity'
 
-export default interface NewsItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
+export interface NewsItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
     title: string
     description: string
     image: BackendImage
     viewsCount: number
+}
+
+export interface NewsItemResponse {
+    id: number
+    attributes: NewsItem & {
+        image: {
+            data: {
+                attributes: BackendImage
+            }
+        }
+    }
 }
