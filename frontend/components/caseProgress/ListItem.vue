@@ -22,7 +22,8 @@ const backgroundClass = computed(() => {
         :src="buildBackendImageUrl(runtimeConfig, item.images[0].url)"
         class="object-fill absolute inset-0"
         :imgAttrs="{
-          class: 'object-fill absolute w-full h-full'
+          class: 'object-fill absolute w-full h-full',
+          alt: item.images[0].alternativeText,
         }"
       />
       <div

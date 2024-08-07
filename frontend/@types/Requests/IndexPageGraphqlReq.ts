@@ -1,6 +1,7 @@
 import type { NewsItemResponse } from '~/@types/NewsItem'
 import type { CaseProgressItemResponse } from '~/@types/CaseProgressItem'
 import type { CriminalProceedingItemResponse } from '~/@types/CriminalProceedingItem'
+import type { OfficerResponse } from '~/@types/Officer'
 
 export default interface IndexPageGraphqlReq {
     data: {
@@ -12,6 +13,9 @@ export default interface IndexPageGraphqlReq {
         }
         caseProgressItems: {
             data: CaseProgressItemResponse[]
+        }
+        officers: {
+            data: OfficerResponse[]
         }
     }
 }

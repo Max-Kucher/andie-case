@@ -20,7 +20,8 @@ const runtimeConfig = useRuntimeConfig()
       :src="buildBackendImageUrl(runtimeConfig, banner.image.url)"
       class="object-fill absolute inset-0"
       :imgAttrs="{
-        class: 'object-fill absolute w-full h-full'
+        class: 'object-fill absolute w-full h-full',
+        alt: banner.image.alternativeText,
       }"
     />
 
