@@ -9,6 +9,7 @@ import type {
 export interface NewsItem extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
     title: string
     description: string
+    shortDescription: string
     image: BackendImage
     viewsCount: number
 }

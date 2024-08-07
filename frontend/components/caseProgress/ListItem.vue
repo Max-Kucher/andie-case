@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { CaseProgressItem } from '~/@types/CaseProgressItem'
-import {createShortDescription} from "~/utils/helpers";
 
 const props = defineProps<{
   item: CaseProgressItem
@@ -61,7 +60,7 @@ const backgroundClass = computed(() => {
       class="px-3.5 pt-12 pb-6"
       :class="backgroundClass"
     >
-      <p v-html="createShortDescription(stripTags(item.description))" />
+      <div v-html="item.shortDescription" />
 
       <ButtonsReadMore
         :to="{ name: 'case-progress-id', params: { id: item.id } }"

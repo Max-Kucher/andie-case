@@ -12,12 +12,6 @@ export const buildBackendImageUrl = (runtimeConfig: RuntimeConfig, imagePath: st
     return `${runtimeConfig.public.backendUrl}${imagePath}`
 }
 
-export const createShortDescription = (val: string, sentences: number = 2): string => {
-    const fragment = val.slice(0, val.split('.', sentences).join('.').length);
-
-    return serializeDocument(parseDocument(fragment))
-}
-
 export const stripTags = (html: string): string => {
     const handler = new DomHandler((error, dom) => {
         if (error) {

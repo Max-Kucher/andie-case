@@ -10,7 +10,7 @@ query IndexPage($locale: I18NLocaleCode!) {
       id
       attributes {
         title
-        description
+        shortDescription
         createdAt
         viewsCount
         image {
@@ -28,7 +28,7 @@ query IndexPage($locale: I18NLocaleCode!) {
       id
       attributes {
         title
-        description
+        shortDescription
       }
     }
   }
@@ -37,7 +37,7 @@ query IndexPage($locale: I18NLocaleCode!) {
       id
       attributes {
         title
-        description
+        shortDescription
         viewsCount
         createdAt
         images(pagination: { pageSize: 1 }) {

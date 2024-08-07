@@ -795,6 +795,7 @@ export interface ApiCaseProgressItemCaseProgressItem
     singularName: 'case-progress-item';
     pluralName: 'case-progress-items';
     displayName: 'Case progress item';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -846,6 +847,19 @@ export interface ApiCaseProgressItemCaseProgressItem
         number
       > &
       Attribute.DefaultTo<0>;
+    shortDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+          maxLengthCharacters: 320;
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -928,6 +942,19 @@ export interface ApiCriminalProceedingCriminalProceeding
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    shortDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+          maxLengthCharacters: 1200;
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1136,6 +1163,19 @@ export interface ApiNewsItemNewsItem extends Schema.CollectionType {
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'toolbar';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    shortDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+          maxLengthCharacters: 800;
         }
       > &
       Attribute.SetPluginOptions<{
