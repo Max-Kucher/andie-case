@@ -31,3 +31,15 @@
 .app-header {
     @apply font-druk-wide font-medium text-4xl uppercase;
 }
+
+:root {
+    --swiper-pagination-color: #FFB54D;
+    --swiper-pagination-bullet-width: 6px;
+    --swiper-pagination-bullet-height: 6px;
+    --swiper-pagination-bullet-inactive-color: #EFEFEF;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    @apply !w-2 !h-2;
+}

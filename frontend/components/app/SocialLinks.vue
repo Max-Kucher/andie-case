@@ -14,11 +14,13 @@ const settings = inject<Record<string, string>>('AppSettings')
       :to="settings[`${social}-link`]"
       :title="t(`socials.${social}`)"
       class="p-2"
+      target="_blank"
     >
       <NuxtImg
         :src="`/socials/${social}.svg`"
         :alt="t(`socials.${social}`)"
         :width="16"
+        :class="{ 'invert': ~['x'].indexOf(social) }"
       />
     </NuxtLink>
   </div>

@@ -24,7 +24,10 @@ const runtimeConfig = useRuntimeConfig()
       }"
     />
 
-    <div class="absolute inset-0 bg-black opacity-30 z-10" />
+    <div
+      v-if="banner.image"
+      class="absolute inset-0 bg-black opacity-30 z-10"
+    />
 
     <LayoutContainer class="app-layout-cols relative z-20">
       <div class="font-medium col-span-2 lg:mt-36 lg:mb-24">
@@ -36,8 +39,8 @@ const runtimeConfig = useRuntimeConfig()
           <div class="flex gap-1.5">
             <NuxtImg
               src="/icons/eye.svg"
-              :alt="banner.viewsCount.toString()"
               :width="22"
+              alt=""
             />
 
             {{ banner.viewsCount }}

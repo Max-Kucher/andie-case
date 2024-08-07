@@ -32,12 +32,13 @@ query IndexPage($locale: I18NLocaleCode!) {
       }
     }
   }
-  caseProgressItems(locale: $locale, sort: "createdAt:desc", pagination: { pageSize: 8 }) {
+  caseProgressItems(locale: $locale, sort: "createdAt:desc", pagination: { pageSize: 6 }) {
     data {
       id
       attributes {
         title
         description
+        viewsCount
         createdAt
         images(pagination: { pageSize: 1 }) {
           data {
