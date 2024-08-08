@@ -1372,6 +1372,117 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiWhoIsAndyWhoIsAndy extends Schema.SingleType {
+  collectionName: 'who_is_andies';
+  info: {
+    singularName: 'who-is-andy';
+    pluralName: 'who-is-andies';
+    displayName: 'Who is Andy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    description: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::who-is-andy.who-is-andy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::who-is-andy.who-is-andy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::who-is-andy.who-is-andy',
+      'oneToMany',
+      'api::who-is-andy.who-is-andy'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiWhoIsAndyBannerWhoIsAndyBanner
+  extends Schema.CollectionType {
+  collectionName: 'who_is_andy_banners';
+  info: {
+    singularName: 'who-is-andy-banner';
+    pluralName: 'who-is-andy-banners';
+    displayName: '"Who is Andy" banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
+    image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::who-is-andy-banner.who-is-andy-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::who-is-andy-banner.who-is-andy-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::who-is-andy-banner.who-is-andy-banner',
+      'oneToMany',
+      'api::who-is-andy-banner.who-is-andy-banner'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1397,6 +1508,8 @@ declare module '@strapi/types' {
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::officer.officer': ApiOfficerOfficer;
       'api::page.page': ApiPagePage;
+      'api::who-is-andy.who-is-andy': ApiWhoIsAndyWhoIsAndy;
+      'api::who-is-andy-banner.who-is-andy-banner': ApiWhoIsAndyBannerWhoIsAndyBanner;
     }
   }
 }
