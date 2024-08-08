@@ -16,7 +16,7 @@ const { t } = useI18n()
         :img="item.image"
       />
     </div>
-    <div class="px-3.5 pt-5 pb-6 bg-[#F8F8F8]">
+    <div class="px-3.5 pt-5 pb-6 bg-placeholder-light">
       <div class="text-3xl font-medium mb-2.5">
         {{ item.name }}
       </div>

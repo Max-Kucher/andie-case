@@ -860,6 +860,13 @@ export interface ApiCaseProgressItemCaseProgressItem
           localized: true;
         };
       }>;
+    showImageInList: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

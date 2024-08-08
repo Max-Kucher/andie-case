@@ -73,6 +73,15 @@
         "maxLengthCharacters": 320
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "showImageInList": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

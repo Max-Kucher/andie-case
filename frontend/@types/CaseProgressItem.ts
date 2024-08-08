@@ -12,6 +12,7 @@ export interface CaseProgressItem extends BlankEntity, PublishableEntity, I18NEn
     shortDescription: string
     images: BackendImage[]
     viewsCount: number
+    showImageInList: boolean
 }
 
 export interface CaseProgressItemResponse {

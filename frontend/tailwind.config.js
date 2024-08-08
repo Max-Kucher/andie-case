@@ -14,6 +14,7 @@ export default {
           light: '#7B7B7B',
         },
         placeholder: {
+          light: '#F8F8F8',
           DEFAULT: '#D9D9D9',
         },
       },

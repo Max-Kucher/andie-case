@@ -54,11 +54,14 @@ export default defineI18nLocale(async locale => {
             title: 'Правопохоронці',
             readMore: 'Читати досьє',
             block: {
-                readMore: 'Дивитися усі досьє',
+                readMore: 'Дивитись усі досьє',
             },
         },
         news: {
             title: 'Новини',
+            block: {
+                readMore: 'Дивитись усі новини',
+            },
         },
     }
 })

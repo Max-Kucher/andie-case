@@ -41,6 +41,7 @@ query IndexPage($locale: I18NLocaleCode!) {
         shortDescription
         viewsCount
         createdAt
+        showImageInList
         images(pagination: { pageSize: 1 }) {
           data {
             attributes {

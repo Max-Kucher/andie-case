@@ -14,15 +14,10 @@ const backgroundClass = computed(() => {
 
 <template>
   <div>
-    <div class="relative bg-placeholder">
+    <div class="relative bg-placeholder-light">
       <AppBackgroundPicture
-        v-if="item.images?.length"
+        v-if="item.images?.length && item.showImageInList"
         :img="item.images[0]"
-      />
-
-      <div
-        v-if="item.images?.length"
-        class="absolute inset-0 bg-black opacity-30 z-10"
       />
 
       <div class="relative z-20 px-3.5 pt-9 pb-8">
