@@ -8,7 +8,7 @@ const { t } = useI18n()
 
 <template>
   <section>
-    <LayoutContainer class="mt-48 mb-16">
+    <LayoutContainer class="pt-48 pb-16">
       <LayoutBlockTitle
         :to="{ name: 'case-progress' }"
         :link-text="t('caseProgress.block.readMore')"

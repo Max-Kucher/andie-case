@@ -57,5 +57,8 @@ export default defineI18nLocale(async locale => {
                 readMore: 'Дивитися усі досьє',
             },
         },
+        news: {
+            title: 'Новини',
+        },
     }
 })

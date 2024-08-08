@@ -1170,18 +1170,14 @@ export interface ApiNewsItemNewsItem extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    shortDescription: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-          maxLengthCharacters: 800;
-        }
-      > &
+    shortDescription: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 320;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

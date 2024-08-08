@@ -6,21 +6,14 @@ defineProps<{
 }>()
 
 const { t } = useI18n()
-
-const runtimeConfig = useRuntimeConfig()
 </script>
 
 <template>
   <div>
     <div class="relative bg-placeholder h-60">
-      <NuxtPicture
+      <AppBackgroundPicture
         v-if="item.image"
-        :src="buildBackendImageUrl(runtimeConfig, item.image.url)"
-        class="object-fill absolute inset-0"
-        :imgAttrs="{
-          class: 'object-fill absolute w-full h-full',
-          alt: item.image.alternativeText ?? '',
-        }"
+        :img="item.image"
       />
     </div>
     <div class="px-3.5 pt-5 pb-6 bg-[#F8F8F8]">

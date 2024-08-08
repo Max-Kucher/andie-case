@@ -6,8 +6,6 @@ const latestNewsItems = inject<NewsItem[]>('latestNewsItems')
 const banner = computed(() => {
   return (latestNewsItems?.length ? latestNewsItems[0] : {}) as NewsItem
 })
-
-const runtimeConfig = useRuntimeConfig()
 </script>
 
 <template>
@@ -15,18 +13,13 @@ const runtimeConfig = useRuntimeConfig()
     :to="{ name: 'mass-media-id', params: { id: banner.id } }"
     class="bg-placeholder min-h-[80dvh] relative block"
   >
-    <NuxtPicture
+    <AppBackgroundPicture
       v-if="banner.image"
-      :src="buildBackendImageUrl(runtimeConfig, banner.image.url)"
-      class="object-fill absolute inset-0"
-      :imgAttrs="{
-        class: 'object-fill absolute w-full h-full',
-        alt: banner.image.alternativeText ?? '',
-      }"
+      :img="banner.image"
     />
 
     <div
-      v-if="banner.image"
+      v-if="banner.image?.url"
       class="absolute inset-0 bg-black opacity-30 z-10"
     />
 

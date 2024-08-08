@@ -115,5 +115,7 @@ watch(data, newVal => {
     <HomeCaseProgressScroller v-if="data.data.caseProgressItems" />
 
     <HomeOfficersScroller v-if="data.data.officers" />
+
+    <HomeNewsList v-if="data.data.newsItems" />
   </div>
 </template>

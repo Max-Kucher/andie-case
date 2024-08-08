@@ -34,7 +34,7 @@ const id = useId()
       </button>
       <div
         :id="`${id}-pagination`"
-        class="flex !w-auto min-w-28 items-center gap-x-2"
+        class="flex !w-auto min-w-28 items-center justify-center gap-x-2"
       />
       <button :id="`${id}-nav-next`">
         <NuxtImg

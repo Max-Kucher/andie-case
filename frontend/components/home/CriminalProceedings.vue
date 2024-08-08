@@ -36,10 +36,9 @@ const { t } = useI18n()
 
         <div class="prose-base" v-html="item.shortDescription" />
 
-        <ButtonsReadMore
+        <ButtonsDarkReadMore
           :to="{ name: 'criminal-proceedings-id', params: { id: item.id } }"
-          class="bg-black text-white mt-5 transition-colors hover:bg-light-black"
-          inverted-image
+          class="mt-5"
         />
       </details>
     </div>

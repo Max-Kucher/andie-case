@@ -6,8 +6,6 @@ const props = defineProps<{
   itemIdx: number
 }>()
 
-const runtimeConfig = useRuntimeConfig()
-
 const backgroundClass = computed(() => {
   const classes = ['bg-[#FFBE5B]/55', 'bg-[#FF5B5B]/55', 'bg-[#5BCEFF]/55']
   return classes[props.itemIdx % classes.length]
@@ -17,15 +15,11 @@ const backgroundClass = computed(() => {
 <template>
   <div>
     <div class="relative bg-placeholder">
-      <NuxtPicture
+      <AppBackgroundPicture
         v-if="item.images?.length"
-        :src="buildBackendImageUrl(runtimeConfig, item.images[0].url)"
-        class="object-fill absolute inset-0"
-        :imgAttrs="{
-          class: 'object-fill absolute w-full h-full',
-          alt: item.images[0].alternativeText ?? '',
-        }"
+        :img="item.images[0]"
       />
+
       <div
         v-if="item.images?.length"
         class="absolute inset-0 bg-black opacity-30 z-10"
