@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     'nuxt-swiper',
   ],
   image: {
+    format: ['avif', 'webp'],
     dir: 'public/images',
   },
   i18n: {

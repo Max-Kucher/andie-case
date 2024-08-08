@@ -52,8 +52,9 @@ export default defineI18nLocale(async locale => {
         },
         officers: {
             title: 'Правопохоронці',
+            readMore: 'Читати досьє',
             block: {
-                readMore: 'Дивитися усіх',
+                readMore: 'Дивитися усі досьє',
             },
         },
     }

@@ -1246,19 +1246,6 @@ export interface ApiOfficerOfficer extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    shortDescription: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-          maxLengthCharacters: 320;
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     viewsCount: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1278,6 +1265,15 @@ export interface ApiOfficerOfficer extends Schema.CollectionType {
         i18n: {
           localized: false;
         };
+      }>;
+    shortDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 320;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

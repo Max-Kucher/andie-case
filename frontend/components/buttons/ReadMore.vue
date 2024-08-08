@@ -1,14 +1,19 @@
 <script lang="ts" setup>
 import type { RouteLocationRaw } from 'vue-router'
 
-defineProps<{
+export interface ReadMoreButtonProps {
   to: RouteLocationRaw
   invertedImage?: boolean
-}>()
+  text?: string
+}
+
+const props = defineProps<ReadMoreButtonProps>()
 
 const { t } = useI18n()
 
-const readFullTxt = t('readFull')
+const readFullTxt = computed(() => {
+  return props.text ?? t('readFull')
+})
 </script>
 
 <template>

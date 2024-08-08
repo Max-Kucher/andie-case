@@ -23,7 +23,7 @@ const backgroundClass = computed(() => {
         class="object-fill absolute inset-0"
         :imgAttrs="{
           class: 'object-fill absolute w-full h-full',
-          alt: item.images[0].alternativeText,
+          alt: item.images[0].alternativeText ?? '',
         }"
       />
       <div
@@ -58,16 +58,30 @@ const backgroundClass = computed(() => {
     </div>
 
     <div
-      class="px-3.5 pt-12 pb-6"
-      :class="backgroundClass"
+      class="relative"
     >
-      <div v-html="item.shortDescription" />
-
-      <ButtonsReadMore
-        :to="{ name: 'case-progress-id', params: { id: item.id } }"
-        class="mt-3.5 bg-black text-white transition-colors hover:bg-light-black hover:text-accent"
-        inverted-image
+      <NuxtPicture
+        src="/bg-case-progress.jpg"
+        class="absolute inset-0 object-fill"
+        :width="380"
+        loading="lazy"
+        :imgAttrs="{
+          class: 'object-fill absolute w-full h-full',
+          alt: '',
+        }"
       />
+
+      <div
+        class="px-3.5 pt-12 pb-6 relative z-10"
+        :class="backgroundClass"
+      >
+        <div v-html="item.shortDescription" />
+
+        <ButtonsDarkReadMore
+          :to="{ name: 'case-progress-id', params: { id: item.id } }"
+          class="mt-3.5"
+        />
+      </div>
     </div>
   </div>
 </template>

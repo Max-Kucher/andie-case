@@ -21,7 +21,7 @@ const runtimeConfig = useRuntimeConfig()
       class="object-fill absolute inset-0"
       :imgAttrs="{
         class: 'object-fill absolute w-full h-full',
-        alt: banner.image.alternativeText,
+        alt: banner.image.alternativeText ?? '',
       }"
     />
 
