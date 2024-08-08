@@ -70,8 +70,7 @@ query IndexPage($locale: I18NLocaleCode!) {
       }
     }
   }
-}
-`
+}`
 
 const { data } = await useAPI<IndexPageGraphqlReq>('/graphql', {
   method: 'POST',
@@ -88,19 +87,19 @@ const { data } = await useAPI<IndexPageGraphqlReq>('/graphql', {
 
 watch(data, newVal => {
   if (newVal.data.newsItems != void(0)) {
-    provide('latestNewsItems', transformNewsResponse(newVal.data.newsItems.data))
+    provide('latestNewsItems', transformNewsResponseItems(newVal.data.newsItems.data))
   }
 
   if (newVal.data.criminalProceedings != void(0)) {
-    provide('criminalProceedings', transformCriminalProceedingsResponse(newVal.data.criminalProceedings.data))
+    provide('criminalProceedings', transformCriminalProceedingsResponseItems(newVal.data.criminalProceedings.data))
   }
 
   if (newVal.data.caseProgressItems != void(0)) {
-    provide('caseProgressItems', transformCaseProgressItemResponse(newVal.data.caseProgressItems.data))
+    provide('caseProgressItems', transformCaseProgressItemResponseItems(newVal.data.caseProgressItems.data))
   }
 
   if (newVal.data.officers != void(0)) {
-    provide('officers', transformOfficerResponse(newVal.data.officers.data))
+    provide('officers', transformOfficerResponseItems(newVal.data.officers.data))
   }
 }, { immediate: true })
 </script>

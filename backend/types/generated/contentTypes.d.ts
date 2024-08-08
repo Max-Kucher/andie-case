@@ -1378,9 +1378,10 @@ export interface ApiWhoIsAndyWhoIsAndy extends Schema.SingleType {
     singularName: 'who-is-andy';
     pluralName: 'who-is-andies';
     displayName: 'Who is Andy';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   pluginOptions: {
     i18n: {
@@ -1403,7 +1404,6 @@ export interface ApiWhoIsAndyWhoIsAndy extends Schema.SingleType {
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::who-is-andy.who-is-andy',
       'oneToOne',

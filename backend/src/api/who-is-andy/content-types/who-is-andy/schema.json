@@ -4,10 +4,11 @@
   "info": {
     "singularName": "who-is-andy",
     "pluralName": "who-is-andies",
-    "displayName": "Who is Andy"
+    "displayName": "Who is Andy",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {

@@ -2,7 +2,6 @@
 export interface BlankEntity {
     createdAt: string
     updatedAt: string
-    locale: string
 }
 
 export interface PublishableEntity {
