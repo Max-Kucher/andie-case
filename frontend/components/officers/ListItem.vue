@@ -12,7 +12,7 @@ const { t } = useI18n()
   <div>
     <div class="relative bg-placeholder h-60">
       <AppBackgroundPicture
-        v-if="item.image"
+        v-if="item.image?.url"
         :img="item.image"
       />
     </div>

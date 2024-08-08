@@ -1432,6 +1432,7 @@ export interface ApiWhoIsAndyBannerWhoIsAndyBanner
     singularName: 'who-is-andy-banner';
     pluralName: 'who-is-andy-banners';
     displayName: '"Who is Andy" banner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1459,6 +1460,35 @@ export interface ApiWhoIsAndyBannerWhoIsAndyBanner
           localized: false;
         };
       }>;
+    titleTag: Attribute.Enumeration<
+      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'h1'>;
+    transitionToTitle: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    priority: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

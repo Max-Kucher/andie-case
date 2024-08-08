@@ -14,7 +14,7 @@ const banner = computed(() => {
     class="bg-placeholder relative block"
   >
     <AppBackgroundPicture
-      v-if="banner.image"
+      v-if="banner.image?.url"
       :img="banner.image"
     />
 

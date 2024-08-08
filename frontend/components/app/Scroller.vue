@@ -10,17 +10,10 @@ const id = useId()
 
 <template>
   <Swiper
-    loop
-    :modules="[SwiperPagination, SwiperNavigation]"
-    :pagination="{
-      enabled: true,
-      clickable: true,
-      el: `#${id}-pagination`,
-    }"
-    :navigation="{
-      enabled: true,
-      prevEl: `#${id}-nav-prev`,
-      nextEl: `#${id}-nav-next`,
+    v-bind="{
+      ...getDefaultScrollerParams(id),
+      ...$props,
+      ...$attrs,
     }"
   >
     <slot />

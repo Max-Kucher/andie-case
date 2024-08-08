@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import type AboutAndyGraphqlReq from '~/@types/Requests/AboutAndyGraphqlReq'
 
+definePageMeta({
+  pageTransition: false,
+})
+
 const { localeProperties } = useI18n()
 
 const query = `
 query AboutAndyPage($locale: I18NLocaleCode!) {
-  whoIsAndyBanners(locale: $locale, sort: "createdAt:desc") {
+  whoIsAndyBanners(locale: $locale, sort: "priority:desc") {
     data {
       attributes {
         title
+        titleTag
+        transitionToTitle
         image {
           data {
             attributes {
@@ -45,6 +51,9 @@ const { data } = await useAPI<AboutAndyGraphqlReq>('/graphql', {
 
 <template>
   <div>
-    {{ JSON.stringify(data) }}
+    <WhoIsAndyScroller
+      v-if="data.data.whoIsAndyBanners"
+      :banners="transformWhoIsAndyBannersResponseItems(data.data.whoIsAndyBanners.data)"
+    />
   </div>
 </template>

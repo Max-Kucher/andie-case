@@ -6,7 +6,7 @@ const { t } = useI18n()
   <section class="bg-light-black">
     <LayoutContainer class="app-layout-cols lg:pt-48 lg:pb-32">
       <div>
-        <h3 class="text-white app-header">
+        <h3 class="text-white app-header who-is-andy">
           {{ t('whoIsAndy.title') }}
         </h3>
 
@@ -39,3 +39,9 @@ const { t } = useI18n()
     </LayoutContainer>
   </section>
 </template>
+
+<style scoped>
+.who-is-andy {
+  view-transition-name: who-is-andy-title;
+}
+</style>

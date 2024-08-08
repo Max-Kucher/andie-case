@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { CaseProgressItem } from '~/@types/CaseProgressItem'
+import BackgroundPicture from "~/components/app/BackgroundPicture.vue";
 
 const props = defineProps<{
   item: CaseProgressItem
@@ -49,15 +50,8 @@ const backgroundClass = computed(() => {
     <div
       class="relative"
     >
-      <NuxtPicture
-        src="/bg-case-progress.jpg"
-        class="absolute inset-0 object-fill"
-        :width="380"
-        loading="lazy"
-        :imgAttrs="{
-          class: 'object-fill absolute w-full h-full',
-          alt: '',
-        }"
+      <BackgroundPicture
+        img="/bg-case-progress.jpg"
       />
 
       <div

@@ -8,6 +8,8 @@ import type {
 
 export interface WhoIsAndyBanner extends BlankEntity, PublishableEntity, I18NEntity, IdentifiableEntity {
     title: string
+    titleTag: string
+    transitionToTitle: boolean
     image: BackendImage
 }
 
