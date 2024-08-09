@@ -17,7 +17,7 @@ const settings = inject<Record<string, string>>('AppSettings')
       target="_blank"
     >
       <NuxtImg
-        :src="`/socials/${social}.svg`"
+        :src="`/images/socials/${social}.svg`"
         :alt="t(`socials.${social}`)"
         :width="16"
         :class="{ 'invert': ~['x'].indexOf(social) }"

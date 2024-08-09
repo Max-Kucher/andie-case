@@ -9,7 +9,7 @@ const { t } = useI18n()
     target="_blank"
   >
     <NuxtImg
-      src="/socials/telegram.svg"
+      src="/images/socials/telegram.svg"
       :alt="t('socials.telegram')"
       :width="32"
     />

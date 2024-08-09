@@ -24,7 +24,7 @@ const readFullTxt = computed(() => {
     {{ readFullTxt }}
 
     <NuxtImg
-      src="/icons/button-arrow.svg"
+      src="/images/icons/button-arrow.svg"
       :width="21"
       :alt="readFullTxt"
       :class="{ 'invert': invertedImage }"

@@ -4,7 +4,7 @@ import type { SwiperOptions } from 'swiper/types'
 interface Props extends /** @vue-ignore */ SwiperOptions { }
 
 defineProps<Props & {
-  appPaginationWrapperClass: string
+  appPaginationWrapperClass?: string
 }>()
 
 const id = useId()
@@ -26,7 +26,7 @@ const id = useId()
     >
       <button :id="`${id}-nav-prev`">
         <NuxtImg
-          src="/icons/prev.svg"
+          src="/images/icons/prev.svg"
           class="w-2.5"
         />
       </button>
@@ -36,7 +36,7 @@ const id = useId()
       />
       <button :id="`${id}-nav-next`">
         <NuxtImg
-          src="/icons/next.svg"
+          src="/images/icons/next.svg"
           class="w-2.5"
         />
       </button>

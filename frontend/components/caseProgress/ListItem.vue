@@ -32,7 +32,7 @@ const backgroundClass = computed(() => {
 
           <div class="flex gap-1.5">
             <NuxtImg
-              src="/icons/eye.svg"
+              src="/images/icons/eye.svg"
               :width="22"
               alt=""
             />
@@ -51,7 +51,7 @@ const backgroundClass = computed(() => {
       class="relative"
     >
       <BackgroundPicture
-        img="/bg-case-progress.jpg"
+        img="/images/bg-case-progress.jpg"
       />
 
       <div

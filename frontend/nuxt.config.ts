@@ -37,7 +37,6 @@ export default defineNuxtConfig({
   ],
   image: {
     format: ['avif', 'webp'],
-    dir: 'public/images',
   },
   i18n: {
     strategy: 'prefix_except_default',

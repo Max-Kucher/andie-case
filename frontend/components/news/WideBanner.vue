@@ -32,7 +32,7 @@ const banner = computed(() => {
 
           <div class="flex gap-1.5">
             <NuxtImg
-              src="/icons/eye.svg"
+              src="/images/icons/eye.svg"
               :width="22"
               alt=""
             />
