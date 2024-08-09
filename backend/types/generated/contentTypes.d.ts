@@ -1454,7 +1454,6 @@ export interface ApiWhoIsAndyBannerWhoIsAndyBanner
         maxLength: 64;
       }>;
     image: Attribute.Media<'images'> &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

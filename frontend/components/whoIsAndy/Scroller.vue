@@ -13,6 +13,8 @@ defineProps<{
     :parallax="{
       enabled: true,
     }"
+    class="bg-black"
+    app-pagination-wrapper-class="absolute left-1/2 z-[11] -translate-x-1/2 bottom-24"
   >
     <SwiperSlide
         v-for="(banner, idx) in banners"

@@ -22,7 +22,7 @@ const menuItems = computed(() => (_menuItems?.filter(item => item.attributes.sho
         <NuxtLinkLocale
           :to="item.matchedUrl"
           role="menuitem"
-          class="inline-block py-1 hover:text-white transition-colors"
+          class="block py-1 hover:text-white transition-colors"
         >
           {{ item.title }}
         </NuxtLinkLocale>

@@ -3,7 +3,9 @@ import type { SwiperOptions } from 'swiper/types'
 
 interface Props extends /** @vue-ignore */ SwiperOptions { }
 
-defineProps<Props>()
+defineProps<Props & {
+  appPaginationWrapperClass: string
+}>()
 
 const id = useId()
 </script>
@@ -18,7 +20,10 @@ const id = useId()
   >
     <slot />
 
-    <div class="flex items-center justify-center gap-x-3 mt-10">
+    <div
+      class="flex items-center justify-center gap-x-3 mt-10"
+      :class="appPaginationWrapperClass"
+    >
       <button :id="`${id}-nav-prev`">
         <NuxtImg
           src="/icons/prev.svg"

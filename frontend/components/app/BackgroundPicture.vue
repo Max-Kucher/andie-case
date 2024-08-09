@@ -1,9 +1,12 @@
 <script lang="ts" setup>
 import type BackendImage from '~/@types/BackendImage'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   img: BackendImage | string
-}>()
+  objectClass?: string
+}>(), {
+  objectClass: 'object-fill',
+})
 
 const runtimeConfig = useRuntimeConfig()
 
@@ -15,9 +18,10 @@ const alternateText = computed(() => {
 <template>
   <NuxtPicture
     :src="typeof img === 'string' ? img : buildBackendImageUrl(runtimeConfig, img.url)"
-    class="object-fill absolute inset-0"
+    class="absolute inset-0"
+    :class="props.objectClass"
     :imgAttrs="{
-      class: 'object-fill absolute w-full h-full',
+      class: `${props.objectClass} absolute w-full h-full`,
       alt: alternateText,
     }"
   />
