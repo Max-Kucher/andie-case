@@ -32,6 +32,8 @@ const { data } = await useAPI<CriminalProceedingsGraphqlReq>('/graphql', {
 
 <template>
   <LayoutContainer>
+    <AppBreadcrumbs />
+
     <h1 class="text-red-400">Criminal proceedings</h1>
 
     {{ JSON.stringify(data) }}

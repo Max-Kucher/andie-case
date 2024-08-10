@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://andy-case.com.ua',
     name: 'Справа Andy',
+    trailingSlash: false,
   },
   app: {
     pageTransition: {

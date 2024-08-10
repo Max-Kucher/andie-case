@@ -4,10 +4,10 @@ export default defineI18nLocale(async locale => {
         breadcrumb: {
             items: {
                 index: {
-                    ariaLabel: 'Головна',
+                    label: 'Головна',
                 },
                 'criminal-proceedings': {
-                    ariaLabel: 'Кримінальні провадження',
+                    label: 'Кримінальні провадження',
                 },
             }
         },
