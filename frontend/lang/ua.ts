@@ -63,5 +63,6 @@ export default defineI18nLocale(async locale => {
                 readMore: 'Дивитись усі новини',
             },
         },
+        viewsCount: 'Кількість переглядів',
     }
 })
