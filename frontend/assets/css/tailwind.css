@@ -25,7 +25,7 @@
 }
 
 .app-button {
-    @apply py-2 px-4 text-base rounded;
+    @apply py-2 px-4 text-base rounded select-none;
 }
 
 .app-header {

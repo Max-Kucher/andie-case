@@ -42,7 +42,7 @@ export default defineNuxtConfig({
     "@nuxtjs/seo"
   ],
   image: {
-    format: ['avif', 'webp'],
+    format: ['avif'],
     providers: {
       strapi: {},
     },

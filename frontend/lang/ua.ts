@@ -13,6 +13,10 @@ export default defineI18nLocale(async locale => {
         },
         layouts: {
             title: 'Справа Andy',
+            pagination: {
+                prev: 'До попередніх',
+                next: 'До наступних',
+            },
         },
         whoIsAndy: {
             title: 'Хто такий Andy',

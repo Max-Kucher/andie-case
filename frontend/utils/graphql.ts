@@ -23,6 +23,9 @@ export const transformCriminalProceedingsResponse = (criminalProceedingItemRespo
     return {
         ...criminalProceedingItemResponse.attributes,
         id: criminalProceedingItemResponse.id ?? null,
+        images: criminalProceedingItemResponse.attributes?.images?.data.map(imgItem => ({
+            ...imgItem.attributes,
+        })) ?? []
     }
 }
 
@@ -34,7 +37,7 @@ export const transformCaseProgressItemResponse = (caseProgressItemResponse: Case
     return {
         ...caseProgressItemResponse.attributes,
         id: caseProgressItemResponse.id ?? null,
-        images: caseProgressItemResponse.attributes?.images.data.map(imgItem => ({
+        images: caseProgressItemResponse.attributes?.images?.data.map(imgItem => ({
             ...imgItem.attributes,
         })) ?? []
     }

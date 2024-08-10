@@ -24,3 +24,7 @@ export const stripTags = (html: string): string => {
 
     return DomUtils.textContent(handler.dom)
 }
+
+export const trimString = (str: string, length: number = 200): string => {
+    return str.slice(0, length) + (str.length > length ? '...' : '')
+}

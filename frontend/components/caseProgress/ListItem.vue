@@ -14,7 +14,7 @@ const backgroundClass = computed(() => {
 </script>
 
 <template>
-  <AppListItem
+  <ListsItem
     :title="item.title"
     :description="item.shortDescription"
     :views-count="item.viewsCount"

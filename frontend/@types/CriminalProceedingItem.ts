@@ -10,12 +10,19 @@ export interface CriminalProceedingItem extends BlankEntity, PublishableEntity, 
     title: string
     description: string
     shortDescription: string
+    showImageInList: boolean
     images: BackendImage[]
     viewsCount: number
 }
 
 export interface CriminalProceedingItemResponse {
     id: number
-    attributes: CriminalProceedingItem
+    attributes: CriminalProceedingItem & {
+        images: {
+            data: {
+                attributes: BackendImage
+            }[]
+        }
+    }
 }
 

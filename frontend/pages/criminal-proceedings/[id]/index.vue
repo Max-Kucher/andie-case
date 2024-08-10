@@ -3,5 +3,18 @@ const route = useRoute()
 </script>
 
 <template>
-  <h1>News criminal proceeding: {{ route.params.id }}</h1>
+  <LayoutContainer>
+    <AppBreadcrumbs
+      :breadcrumb-props="{
+        hideCurrent: true,
+        append: [
+          {
+            label: 'Test',
+          },
+        ],
+      }"
+    />
+
+    <h1>News criminal proceeding: {{ route.params.id }}</h1>
+  </LayoutContainer>
 </template>
