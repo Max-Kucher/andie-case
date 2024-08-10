@@ -22,38 +22,6 @@ export default {
         sans: ['Gilroy', 'Arial', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
         'druk-wide': ['Druk Wide Cyr', 'Gilroy', 'Arial', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
       },
-      typography: (theme) => {
-        return {
-          base: {
-            css: {
-              h1: {
-                fontFamily: theme('fontFamily.druk-wide'),
-                fontWeight: theme('fontWeight.medium'),
-              },
-              h2: {
-                fontFamily: theme('fontFamily.druk-wide'),
-                fontWeight: theme('fontWeight.medium'),
-              },
-              h3: {
-                fontFamily: theme('fontFamily.druk-wide'),
-                fontWeight: theme('fontWeight.medium'),
-              },
-              h4: {
-                fontFamily: theme('fontFamily.druk-wide'),
-                fontWeight: theme('fontWeight.medium'),
-              },
-              h5: {
-                fontFamily: theme('fontFamily.druk-wide'),
-                fontWeight: theme('fontWeight.medium'),
-              },
-              h6: {
-                fontFamily: theme('fontFamily.druk-wide'),
-                fontWeight: theme('fontWeight.medium'),
-              },
-            },
-          },
-        }
-      },
     },
   },
   content: [

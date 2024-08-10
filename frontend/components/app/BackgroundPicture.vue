@@ -8,8 +8,6 @@ const props = withDefaults(defineProps<{
   objectClass: 'object-fill',
 })
 
-const runtimeConfig = useRuntimeConfig()
-
 const alternateText = computed(() => {
   return typeof props.img === 'string' ? '' : props.img?.alternativeText ?? ''
 })
@@ -17,7 +15,8 @@ const alternateText = computed(() => {
 
 <template>
   <NuxtPicture
-    :src="typeof img === 'string' ? img : buildBackendImageUrl(runtimeConfig, img.url)"
+    :src="typeof img === 'string' ? img : img.url.replace('/uploads', '')"
+    :provider="typeof img === 'string' ? undefined : 'strapi'"
     class="absolute inset-0"
     :class="props.objectClass"
     :imgAttrs="{

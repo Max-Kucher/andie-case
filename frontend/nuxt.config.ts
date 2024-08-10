@@ -37,6 +37,9 @@ export default defineNuxtConfig({
   ],
   image: {
     format: ['avif', 'webp'],
+    providers: {
+      strapi: {},
+    },
   },
   i18n: {
     strategy: 'prefix_except_default',
