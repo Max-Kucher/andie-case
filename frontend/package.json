@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/i18n": "^8.3.3",
+    "@nuxtjs/seo": "^2.0.0-rc.18",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "dom-serializer": "^2.0.0",
     "htmlparser2": "^9.1.0",

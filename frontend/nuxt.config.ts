@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
+  site: {
+    url: 'https://andy-case.com.ua',
+    name: 'Справа Andy',
+  },
   app: {
     pageTransition: {
       name: 'page',
@@ -34,6 +38,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/i18n',
     'nuxt-swiper',
+    "@nuxtjs/seo"
   ],
   image: {
     format: ['avif', 'webp'],

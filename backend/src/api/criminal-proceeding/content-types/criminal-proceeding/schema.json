@@ -68,12 +68,8 @@
           "localized": true
         }
       },
-      "type": "customField",
-      "options": {
-        "preset": "toolbar",
-        "maxLengthCharacters": 1200
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "type": "text",
+      "maxLength": 1000
     }
   }
 }

@@ -847,19 +847,6 @@ export interface ApiCaseProgressItemCaseProgressItem
         number
       > &
       Attribute.DefaultTo<0>;
-    shortDescription: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-          maxLengthCharacters: 320;
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     showImageInList: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -867,6 +854,15 @@ export interface ApiCaseProgressItemCaseProgressItem
         };
       }> &
       Attribute.DefaultTo<false>;
+    shortDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 320;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -951,18 +947,14 @@ export interface ApiCriminalProceedingCriminalProceeding
           localized: false;
         };
       }>;
-    shortDescription: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-          maxLengthCharacters: 1200;
-        }
-      > &
+    shortDescription: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 1000;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
