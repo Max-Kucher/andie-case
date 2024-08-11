@@ -22,8 +22,8 @@ const nextPage = computed(() => {
     <ButtonsPagination
       :text="t('layouts.pagination.prev')"
       :to="{ name: route.name }"
-      :page="prevPage"
       :disabled="pagination.page === 1"
+      :page="prevPage"
       @click="() => {
         pagination.page = prevPage
       }"
@@ -32,8 +32,8 @@ const nextPage = computed(() => {
     <ButtonsPagination
       :text="t('layouts.pagination.next')"
       :to="{ name: route.name }"
-      :page="nextPage"
       :disabled="pagination.page === pagination.pageCount"
+      :page="nextPage"
       is-next
       @click.prevent="() => {
         pagination.page = nextPage

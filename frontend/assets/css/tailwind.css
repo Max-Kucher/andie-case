@@ -43,3 +43,7 @@
 .swiper-pagination-bullet-active {
     @apply !w-2 !h-2;
 }
+
+.active-list-item .list-item-title, .item-page-title {
+    view-transition-name: page-title;
+}

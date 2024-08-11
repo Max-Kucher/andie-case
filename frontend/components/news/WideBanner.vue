@@ -30,15 +30,7 @@ const banner = computed(() => {
             {{ formatDate('H:i d.m.Y', banner.createdAt) }}
           </time>
 
-          <div class="flex gap-1.5">
-            <NuxtImg
-              src="/images/icons/eye.svg"
-              :width="22"
-              alt=""
-            />
-
-            {{ banner.viewsCount }}
-          </div>
+          <LayoutViewsCount :views-count="banner.viewsCount" />
         </div>
 
         <h1>

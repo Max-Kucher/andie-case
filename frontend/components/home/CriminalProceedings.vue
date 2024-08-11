@@ -4,6 +4,8 @@ import type { CriminalProceedingItem } from '~/@types/CriminalProceedingItem'
 const criminalProceedings = inject<CriminalProceedingItem[]>('criminalProceedings')
 
 const { t } = useI18n()
+
+const active = useState()
 </script>
 
 <template>
@@ -26,9 +28,14 @@ const { t } = useI18n()
         v-for="item in criminalProceedings"
         :key="`home-criminal-proceedings-${item.id}`"
         class="border-b border-black"
+        :class="{
+          'active-list-item': active === item.id
+        }"
       >
         <summary class="marker:content-none flex items-center justify-between text-2xl font-medium py-5 cursor-pointer">
-          {{ item.title }}
+          <span class="list-item-title">
+            {{ item.title }}
+          </span>
 
           <span class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full">
             <span class="absolute bg-black rounded" />
@@ -41,6 +48,7 @@ const { t } = useI18n()
         <ButtonsDarkReadMore
           :to="{ name: 'criminal-proceedings-id', params: { id: item.id } }"
           class="mt-5"
+          @click.native="active = item.id"
         />
       </details>
     </div>

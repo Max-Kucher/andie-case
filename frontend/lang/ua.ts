@@ -18,6 +18,10 @@ export default defineI18nLocale(async locale => {
                 next: 'До наступних',
             },
         },
+        share: {
+            title: 'Поширити',
+            linkCopied: 'Посилання скопійоване у буфер обміну!',
+        },
         whoIsAndy: {
             title: 'Хто такий Andy',
             short: {
@@ -53,7 +57,16 @@ export default defineI18nLocale(async locale => {
             block: {
                 title: 'Кримінальні{0}провадження',
                 button: 'Дивитись всі провадження',
-            }
+            },
+            errors: {
+                404: {
+                    title: 'Кримінальне провадження не знайдено',
+                },
+            },
+            nextPrev: {
+                prev: 'Попереднє провадження',
+                next: 'Наступне провадження',
+            },
         },
         caseProgress: {
             title: 'Хід справи',

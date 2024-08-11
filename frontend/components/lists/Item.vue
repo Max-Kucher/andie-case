@@ -18,10 +18,16 @@ withDefaults(defineProps<{
 })
 
 const { t } = useI18n()
+
+const active = ref<boolean>(false)
 </script>
 
 <template>
-  <div>
+  <div
+    :class="{
+      'active-list-item': active
+    }"
+  >
     <div class="relative bg-placeholder-light">
       <AppBackgroundPicture
         v-if="image?.url.length && showImage"
@@ -37,18 +43,10 @@ const { t } = useI18n()
             {{ formatDate('d.m.Y', createdAt) }}
           </time>
 
-          <div class="flex gap-1.5">
-            <NuxtImg
-              src="/images/icons/eye.svg"
-              :width="22"
-              :alt="t('viewsCount')"
-            />
-
-            {{ viewsCount }}
-          </div>
+          <LayoutViewsCount :views-count="viewsCount" />
         </div>
 
-        <div class="text-3xl max-w-[60%] mt-24">
+        <div class="list-item-title text-3xl max-w-[60%] mt-24">
           {{ title }}
         </div>
       </div>
@@ -69,6 +67,7 @@ const { t } = useI18n()
 
         <ButtonsDarkReadMore
           :to="to"
+          @click.native="active = true"
           class="mt-3.5"
         />
       </div>

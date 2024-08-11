@@ -4,8 +4,8 @@ import type { RouteLocationAsRelativeGeneric } from 'vue-router'
 const props = withDefaults(defineProps<{
   text: string
   to: RouteLocationAsRelativeGeneric
-  page: number,
   disabled: boolean
+  page?: number,
   isNext?: boolean
 }>(), {
   isNext: false,
@@ -14,11 +14,14 @@ const props = withDefaults(defineProps<{
 const query = computed(() => {
   const query: Partial<{ page: number }> = {}
 
-  if (props.page !== 1) {
+  if (props.page !== undefined && props.page !== 1) {
     query.page = props.page
   }
 
-  return query
+  return {
+    ...(props.to?.query ?? {}),
+    ...query,
+  }
 })
 </script>
 

@@ -24,7 +24,10 @@ const id = useId()
       class="flex items-center justify-center gap-x-3 mt-10"
       :class="appPaginationWrapperClass"
     >
-      <button :id="`${id}-nav-prev`">
+      <button
+        :id="`${id}-nav-prev`"
+        class="hover:invert-[35%] transition-[filter]"
+      >
         <NuxtImg
           src="/images/icons/prev.svg"
           class="w-2.5"
@@ -34,7 +37,10 @@ const id = useId()
         :id="`${id}-pagination`"
         class="flex !w-auto min-w-28 items-center justify-center gap-x-2"
       />
-      <button :id="`${id}-nav-next`">
+      <button
+        :id="`${id}-nav-next`"
+        class="hover:invert-[35%] transition-[filter]"
+      >
         <NuxtImg
           src="/images/icons/next.svg"
           class="w-2.5"

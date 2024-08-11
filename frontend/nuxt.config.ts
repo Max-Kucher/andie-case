@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/i18n',
     'nuxt-swiper',
-    "@nuxtjs/seo"
+    '@nuxtjs/seo',
   ],
   image: {
     format: ['avif'],

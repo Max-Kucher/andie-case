@@ -19,7 +19,7 @@ const readFullTxt = computed(() => {
 <template>
   <NuxtLinkLocale
     :to="to"
-    class="app-button gap-x-1.5 inline-flex"
+    class="app-button gap-x-2 inline-flex"
   >
     {{ readFullTxt }}
 
