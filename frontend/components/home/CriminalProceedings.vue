@@ -10,14 +10,16 @@ const { t } = useI18n()
 <section class="pt-28 pb-20 bg-[#E6EBE6]">
   <LayoutContainer>
 
-    <I18nT
-      keypath="criminalProceedings.block.title"
-      scope="global"
-      tag="h3"
-      class="app-header"
-    >
-      <br />
-    </I18nT>
+    <div class="flex">
+      <I18nT
+        keypath="criminalProceedings.block.title"
+        scope="global"
+        tag="h3"
+        class="app-header"
+      >
+        <br />
+      </I18nT>
+    </div>
 
     <div class="mt-11">
       <details
@@ -55,6 +57,10 @@ const { t } = useI18n()
 </template>
 
 <style scoped lang="postcss">
+.app-header {
+  view-transition-name: criminal-proceedings-title;
+}
+
 details[open] {
   @apply pb-5;
 }

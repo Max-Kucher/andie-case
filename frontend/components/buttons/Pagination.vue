@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { RouteLocationAsRelativeGeneric } from 'vue-router'
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   text: string
   to: RouteLocationAsRelativeGeneric
   page: number,
@@ -10,11 +10,21 @@ withDefaults(defineProps<{
 }>(), {
   isNext: false,
 })
+
+const query = computed(() => {
+  const query: Partial<{ page: number }> = {}
+
+  if (props.page !== 1) {
+    query.page = props.page
+  }
+
+  return query
+})
 </script>
 
 <template>
   <NuxtLink
-    :to="{ ...to, query: { page } }"
+    :to="{ ...to, query }"
     class="app-button gap-x-1.5 inline-flex text-white transition-colors"
     :class="{
       'bg-[#E9E9E9] pointer-events-none': disabled,

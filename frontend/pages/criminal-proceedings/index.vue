@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 import type CriminalProceedingsGraphqlReq from '~/@types/Requests/CriminalProceedingsGraphqlReq'
 import type { CriminalProceedingItem } from '~/@types/CriminalProceedingItem'
-import type { BackendPagination, Pagination } from '~/@types/Pagination'
+
+definePageMeta({
+  pageTransition: false,
+})
 
 const { localeProperties } = useI18n()
 
@@ -35,19 +38,7 @@ query CriminalProceedingsPage($locale: I18NLocaleCode!, $pagination: PaginationA
   }
 }`
 
-const route = useRoute()
-
-const pagination = reactive<Pagination>({
-  page: Number(route.query?.page ?? 1),
-  pageSize: 6,
-  pageCount: 1,
-  total: 0,
-})
-
-const backendPagination = ref<BackendPagination>({
-  page: pagination.page as number,
-  pageSize: pagination.pageSize as number,
-})
+const { pagination, backendPagination } = usePagination()
 
 const { data } = await useAPI<CriminalProceedingsGraphqlReq>('/graphql', {
   method: 'POST',
@@ -62,17 +53,6 @@ const { data } = await useAPI<CriminalProceedingsGraphqlReq>('/graphql', {
     page: 'criminal-proceedings',
   },
 })
-
-watch(
-  pagination,
-  (newVal) => {
-    backendPagination.value = {
-      page: newVal.page as number,
-      pageSize: newVal.pageSize as number,
-    }
-  },
-  { deep: true }
-)
 
 const criminalProceedings = ref<CriminalProceedingItem[]>()
 
@@ -91,7 +71,9 @@ const { t } = useI18n()
   <LayoutContainer>
     <AppBreadcrumbs />
 
-    <h1 class="app-header text-center mt-20 pb-2 mb-28">{{ t('criminalProceedings.title') }}</h1>
+    <div class="flex justify-center mt-20 pb-2 mb-28">
+      <h1 class="app-header">{{ t('criminalProceedings.title') }}</h1>
+    </div>
 
     <CriminalProceedingsList
       v-if="criminalProceedings?.length"
@@ -106,3 +88,9 @@ const { t } = useI18n()
     />
   </LayoutContainer>
 </template>
+
+<style scoped lang="postcss">
+h1 {
+  view-transition-name: criminal-proceedings-title;
+}
+</style>
