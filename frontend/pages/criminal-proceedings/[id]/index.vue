@@ -9,6 +9,8 @@ definePageMeta({
 const route = useRoute()
 const { localeProperties } = useI18n()
 
+await useIncrementEntityViews(Number(route.params.id))
+
 const query = `
 query CriminalProceedingIdPage($id: ID!, $locale: I18NLocaleCode!) {
   criminalProceeding(locale: $locale, id: $id) {
@@ -129,7 +131,6 @@ useHead({
       <Suspense>
         <AppNextPrevItem
           class="mt-11"
-          :item-id="criminalProceeding?.id ?? 0"
           :prev-text="t('criminalProceedings.nextPrev.prev')"
           :next-text="t('criminalProceedings.nextPrev.next')"
         />

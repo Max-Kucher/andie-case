@@ -7,14 +7,12 @@ defineProps<{
 const route = useRoute()
 
 const entityId = route.params.id
-const entityType = computed(() => {
-  return route.matched[0].name?.toString().split('-id')[0] ?? ''
-})
+const entityType = getRouteEntity()
 
 const { data } = await useAPI<{
   prev: number | null
   next: number | null
-}>(`/api/${entityType.value}/${entityId}/next-prev`)
+}>(`/api/${entityType}/${entityId}/next-prev`)
 </script>
 
 <template>

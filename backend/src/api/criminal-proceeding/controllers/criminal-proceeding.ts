@@ -8,7 +8,13 @@ export default factories.createCoreController('api::criminal-proceeding.criminal
   async nextPrev(ctx) {
     const { id } = ctx.params;
 
-    const currentCase = await strapi.entityService.findOne('api::criminal-proceeding.criminal-proceeding', id);
+    const currentCase = await strapi.entityService.count('api::criminal-proceeding.criminal-proceeding', {
+      filters: {
+        id: {
+          $eq: id,
+        },
+      },
+    });
 
     if (!currentCase) {
       return ctx.notFound('Criminal proceeding not found');
@@ -37,5 +43,31 @@ export default factories.createCoreController('api::criminal-proceeding.criminal
       prev: previousCase.length ? previousCase[0].id : null,
       next: nextCase.length ? nextCase[0].id : null,
     });
+  },
+
+  /**
+   * Increment on application level (maybe good idea is to move logic on DB side)
+   * @param ctx
+   */
+  async incrementViews(ctx) {
+    const { id } = ctx.params;
+
+    // Проверка существования сущности
+    const currentCase = await strapi.entityService.findOne('api::criminal-proceeding.criminal-proceeding', id);
+
+    if (!currentCase) {
+      return ctx.notFound('Criminal proceeding not found');
+    }
+
+    // Увеличиваем значение поля viewsCount на 1
+    const updatedCase = await strapi.entityService.update('api::criminal-proceeding.criminal-proceeding', id, {
+      data: {
+        viewsCount: (currentCase.viewsCount || 0) + 1,
+      },
+    });
+
+    return {
+      result: true,
+    };
   }
 }));

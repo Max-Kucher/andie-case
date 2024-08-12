@@ -23,6 +23,14 @@ const myExtraRoutes = [
       auth: false,
     },
   },
+  {
+    method: 'POST',
+    path: '/criminal-proceedings/:id/increment-views',
+    handler: 'api::criminal-proceeding.criminal-proceeding.incrementViews',
+    config: {
+      auth: false,
+    },
+  },
 ];
 
 module.exports = customRouter(defaultRouter, myExtraRoutes);

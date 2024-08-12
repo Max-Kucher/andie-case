@@ -38,8 +38,8 @@ const active = useState()
           </span>
 
           <span class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full">
-            <span class="absolute bg-black rounded" />
-            <span class="absolute bg-black rounded transition-transform" />
+            <span class="absolute w-1/2 top-1/2 left-1/2 bg-black rounded -translate-x-1/2 -translate-y-1/2" />
+            <span class="absolute w-1/2 top-1/2 left-1/2 bg-black rounded -translate-x-1/2 -translate-y-1/2 rotate-90 transition-transform" />
           </span>
         </summary>
 
@@ -75,13 +75,9 @@ details[open] {
 
 .mc-summary-btn span {
   height: 3px;
-  width: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 details[open] .mc-summary-btn span:last-child {
-  transform: translate(-50%, -50%) rotateZ(90deg);
+  transform: translate(-50%, -50%);
 }
 </style>

@@ -28,3 +28,7 @@ export const stripTags = (html: string): string => {
 export const trimString = (str: string, length: number = 200): string => {
     return str.slice(0, length) + (str.length > length ? '...' : '')
 }
+
+export const getRouteEntity = () => {
+    return useRoute().matched[0].name?.toString().split('-id')[0] ?? ''
+}
