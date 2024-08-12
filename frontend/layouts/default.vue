@@ -11,7 +11,7 @@ const head = useLocaleHead({
 })
 
 const defaultTitle = t((route.meta.title ?? 'layouts.title') as string)
-const pagesSettings = inject<PageItem[]>('PagesSettings')
+const pagesSettings = inject<PageItem[]>('PagesSettings', [])
 
 const runtimeConfig = useRuntimeConfig()
 

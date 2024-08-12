@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Officer } from '~/@types/Officer'
 
-const officers = inject<Officer[]>('officers')
+const officers = inject<Officer[]>('officers', [])
 
 const { t } = useI18n()
 </script>

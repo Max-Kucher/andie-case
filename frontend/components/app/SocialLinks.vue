@@ -2,7 +2,7 @@
 const id = useId()
 const { t } = useI18n()
 
-const settings = inject<Record<string, string>>('AppSettings')
+const settings = inject<Record<string, string>>('AppSettings', {})
 </script>
 
 <template>

@@ -86,19 +86,19 @@ const { data } = await useAPI<IndexPageGraphqlReq>('/graphql', {
 })
 
 watch(data, newVal => {
-  if (newVal.data.newsItems != void(0)) {
+  if (newVal?.data.newsItems != void(0)) {
     provide('latestNewsItems', transformNewsResponseItems(newVal.data.newsItems.data))
   }
 
-  if (newVal.data.criminalProceedings != void(0)) {
+  if (newVal?.data.criminalProceedings != void(0)) {
     provide('criminalProceedings', transformCriminalProceedingsResponseItems(newVal.data.criminalProceedings.data))
   }
 
-  if (newVal.data.caseProgressItems != void(0)) {
+  if (newVal?.data.caseProgressItems != void(0)) {
     provide('caseProgressItems', transformCaseProgressItemResponseItems(newVal.data.caseProgressItems.data))
   }
 
-  if (newVal.data.officers != void(0)) {
+  if (newVal?.data.officers != void(0)) {
     provide('officers', transformOfficerResponseItems(newVal.data.officers.data))
   }
 }, { immediate: true })

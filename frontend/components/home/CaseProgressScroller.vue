@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { CaseProgressItem } from '~/@types/CaseProgressItem'
 
-const caseProgressItems = inject<CaseProgressItem[]>('caseProgressItems')
+const caseProgressItems = inject<CaseProgressItem[]>('caseProgressItems', [])
 
 const { t } = useI18n()
 </script>

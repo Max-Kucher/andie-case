@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { CriminalProceedingItem } from '~/@types/CriminalProceedingItem'
 
-const criminalProceedings = inject<CriminalProceedingItem[]>('criminalProceedings')
+const criminalProceedings = inject<CriminalProceedingItem[]>('criminalProceedings', [])
 
 const { t } = useI18n()
 

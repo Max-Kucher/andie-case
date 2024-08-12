@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { NewsItem } from '~/@types/NewsItem'
 
-const latestNewsItems = inject<NewsItem[]>('latestNewsItems')
+const latestNewsItems = inject<NewsItem[]>('latestNewsItems', [])
 
 const banner = computed(() => {
   return (latestNewsItems?.length ? latestNewsItems[0] : {}) as NewsItem
