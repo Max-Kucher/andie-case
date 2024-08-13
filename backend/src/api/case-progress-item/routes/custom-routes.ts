@@ -1,7 +1,7 @@
 import type { CoreApi } from '@strapi/types'
 import { factories } from '@strapi/strapi'
 
-const coreRouter = factories.createCoreRouter('api::criminal-proceeding.criminal-proceeding');
+const defaultRouter = factories.createCoreRouter('api::case-progress-item.case-progress-item')
 
 const customRouter = (innerRouter: CoreApi.Router.Router, extraRoutes = []) => {
   let routes;
@@ -19,20 +19,20 @@ const customRouter = (innerRouter: CoreApi.Router.Router, extraRoutes = []) => {
 const myExtraRoutes = [
   {
     method: 'GET',
-    path: '/criminal-proceedings/:id/next-prev',
-    handler: 'api::criminal-proceeding.criminal-proceeding.nextPrev',
+    path: '/case-progress/:id/next-prev',
+    handler: 'api::case-progress-item.case-progress-item.nextPrev',
     config: {
       auth: false,
     },
   },
   {
     method: 'POST',
-    path: '/criminal-proceedings/:id/increment-views',
-    handler: 'api::criminal-proceeding.criminal-proceeding.incrementViews',
+    path: '/case-progress/:id/increment-views',
+    handler: 'api::case-progress-item.case-progress-item.incrementViews',
     config: {
       auth: false,
     },
   },
 ];
 
-export default customRouter(coreRouter, myExtraRoutes)
+module.exports = customRouter(defaultRouter, myExtraRoutes);

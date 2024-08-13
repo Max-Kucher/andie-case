@@ -76,6 +76,15 @@ export default defineI18nLocale(async locale => {
             block: {
                 readMore: 'Дивитися хід справи',
             },
+            errors: {
+                404: {
+                    title: 'Такого розгляду справи не знайдено',
+                },
+            },
+            nextPrev: {
+                prev: 'Наступний розгляд справи',
+                next: 'Попередній розгляд справи',
+            },
         },
         officers: {
             title: 'Правопохоронці',
