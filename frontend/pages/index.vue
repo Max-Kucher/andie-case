@@ -112,7 +112,10 @@ watch(data, newVal => {
 
     <HomeCriminalProceedings v-if="data.data.criminalProceedings" />
 
-    <HomeCaseProgressScroller v-if="data.data.caseProgressItems" />
+    <HomeCaseProgressScroller
+      v-if="data.data.caseProgressItems"
+      class="pt-32 pb-5"
+    />
 
     <HomeOfficersScroller v-if="data.data.officers" />
 

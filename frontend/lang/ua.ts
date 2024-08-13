@@ -85,8 +85,8 @@ export default defineI18nLocale(async locale => {
                 },
             },
             nextPrev: {
-                prev: 'Наступний розгляд справи',
-                next: 'Попередній розгляд справи',
+                prev: 'Попередній розгляд справи',
+                next: 'Наступний розгляд справи',
             },
         },
         officers: {
@@ -94,6 +94,15 @@ export default defineI18nLocale(async locale => {
             readMore: 'Читати досьє',
             block: {
                 readMore: 'Дивитись усі досьє',
+            },
+            errors: {
+                404: {
+                    title: 'Такого офіцера не знайдено',
+                },
+            },
+            nextPrev: {
+                prev: 'Попередній правопохоронць',
+                next: 'Наступний правопохоронць',
             },
         },
         news: {
