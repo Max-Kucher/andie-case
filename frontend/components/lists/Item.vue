@@ -63,7 +63,10 @@ const active = ref<boolean>(false)
         class="px-3.5 pt-12 pb-6 relative z-10"
         :class="backgroundClass"
       >
-        <div v-html="description" />
+        <div
+          class="line-clamp-4 h-24"
+          v-html="description"
+        />
 
         <ButtonsDarkReadMore
           :to="to"

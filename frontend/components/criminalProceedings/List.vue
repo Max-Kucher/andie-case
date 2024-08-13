@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { CriminalProceedingItem } from '~/@types/CriminalProceedingItem'
-import {trimString} from "~/utils/helpers";
 
 defineProps<{
   criminalProceedings: CriminalProceedingItem[]

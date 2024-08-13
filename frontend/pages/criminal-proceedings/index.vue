@@ -71,9 +71,10 @@ const { t } = useI18n()
   <LayoutContainer>
     <AppBreadcrumbs />
 
-    <div class="flex justify-center mt-20 pb-2 mb-28">
-      <h1 class="app-header">{{ t('criminalProceedings.title') }}</h1>
-    </div>
+    <ListsPageTitle
+      :title="t('criminalProceedings.title')"
+      class="criminal-proceedings-title"
+    />
 
     <CriminalProceedingsList
       v-if="criminalProceedings?.length"
@@ -90,7 +91,7 @@ const { t } = useI18n()
 </template>
 
 <style scoped lang="postcss">
-h1 {
+.criminal-proceedings-title :deep(.app-header) {
   view-transition-name: criminal-proceedings-title;
 }
 </style>

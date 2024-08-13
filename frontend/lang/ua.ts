@@ -9,6 +9,9 @@ export default defineI18nLocale(async locale => {
                 'criminal-proceedings': {
                     label: 'Кримінальні провадження',
                 },
+                'case-progress': {
+                    label: 'Хід справи',
+                },
             }
         },
         layouts: {
