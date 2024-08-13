@@ -17,8 +17,6 @@ withDefaults(defineProps<{
   backgroundClass: 'bg-[#AFAFAF]/55',
 })
 
-const { t } = useI18n()
-
 const active = ref<boolean>(false)
 </script>
 

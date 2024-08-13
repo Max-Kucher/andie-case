@@ -13,6 +13,7 @@ const { t } = useI18n()
         :to="{ name: 'case-progress' }"
         :link-text="t('caseProgress.block.readMore')"
         :title="t('caseProgress.title')"
+        class="case-progress-title"
       />
 
       <AppScroller
@@ -32,3 +33,9 @@ const { t } = useI18n()
     </LayoutContainer>
   </section>
 </template>
+
+<style scoped lang="postcss">
+.case-progress-title :deep(.app-header) {
+  view-transition-name: case-progress-title;
+}
+</style>

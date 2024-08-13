@@ -4,11 +4,21 @@ defineProps<{
   viewsCount: number
   createdAt: string | Date
 }>()
+
+const titleElem = ref<HTMLElement>()
+onMounted(() => {
+  setTimeout(() => {
+    titleElem.value?.classList.remove('item-page-title')
+  }, 200)
+})
 </script>
 
 <template>
   <div class="flex flex-col items-center mt-20 pb-1 mb-16">
-    <h1 class="app-header item-page-title">{{ title }}</h1>
+    <h1
+      ref="titleElem"
+      class="app-header item-page-title"
+    >{{ title }}</h1>
 
     <div class="flex mt-7 font-medium gap-x-9">
       <time
