@@ -79,13 +79,11 @@ const { t } = useI18n()
     <CriminalProceedingsList
       v-if="criminalProceedings?.length"
       :criminal-proceedings="criminalProceedings as CriminalProceedingItem[]"
-      class="mb-12"
     />
 
     <ListsPagination
       v-if="(pagination.pageCount as number) > 1"
       v-model:pagination="pagination"
-      class="mb-24"
     />
   </LayoutContainer>
 </template>

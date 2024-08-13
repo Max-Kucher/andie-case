@@ -12,6 +12,9 @@ export default defineI18nLocale(async locale => {
                 'case-progress': {
                     label: 'Хід справи',
                 },
+                'law-enforcement-officers': {
+                    label: 'Правопохоронці',
+                },
             }
         },
         layouts: {

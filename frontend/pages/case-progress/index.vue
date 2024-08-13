@@ -79,13 +79,11 @@ const { t } = useI18n()
     <CaseProgressList
       v-if="caseProgressItems?.length"
       :case-progress-items="caseProgressItems"
-      class="mb-12"
     />
 
     <ListsPagination
       v-if="(pagination.pageCount as number) > 1"
       v-model:pagination="pagination"
-      class="mb-24"
     />
   </LayoutContainer>
 </template>
