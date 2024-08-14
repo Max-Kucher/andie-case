@@ -18,6 +18,13 @@ export const usePagination = (initialPageSize: number = 6) => {
     watch(
         pagination,
         (newVal) => {
+            // If remove this condition -> will trigger duplicated API calls to backend
+            if (newVal.page === backendPagination.value.page
+                && newVal.pageSize === backendPagination.value.pageSize
+            ) {
+               return
+            }
+
             backendPagination.value = {
                 page: newVal.page,
                 pageSize: newVal.pageSize,

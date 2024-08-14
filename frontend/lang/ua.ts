@@ -111,6 +111,9 @@ export default defineI18nLocale(async locale => {
                 readMore: 'Дивитись усі новини',
             },
         },
+        massMedia: {
+            title: 'ЗМІ',
+        },
         viewsCount: 'Кількість переглядів',
     }
 })

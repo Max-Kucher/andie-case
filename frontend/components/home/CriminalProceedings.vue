@@ -29,7 +29,7 @@ const active = useState()
         :key="`home-criminal-proceedings-${item.id}`"
         class="border-b border-black"
         :class="{
-          'active-list-item': active === item.id
+          'active-list-item': active === item.id,
         }"
       >
         <summary class="marker:content-none flex items-center justify-between text-2xl font-medium py-5 cursor-pointer">
