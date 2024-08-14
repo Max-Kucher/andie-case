@@ -4,6 +4,7 @@ import type { CriminalProceedingItem, CriminalProceedingItemResponse } from '~/@
 import type { Officer, OfficerResponse } from '~/@types/Officer'
 import type { WhoIsAndyBanner, WhoIsAndyBannerResponse } from '~/@types/WhoIsAndyBanner'
 import type { ContentPage, ContentPageResponse } from '~/@types/ContentPage'
+import type { MediaActivityItem, MediaActivityItemResponse } from '~/@types/MediaActivityItem'
 
 export const transformNewsResponse = (newsItemResponse: NewsItemResponse): NewsItem => {
     return {
@@ -80,4 +81,18 @@ export const transformContentPageResponse = (contentPageResponse: ContentPageRes
         ...contentPageResponse.attributes,
         id: contentPageResponse.id ?? null,
     }
+}
+
+export const transformMediaActivityItemResponse = (mediaActivityItemResponse: MediaActivityItemResponse): MediaActivityItem => {
+    return {
+        ...mediaActivityItemResponse.attributes,
+        id: mediaActivityItemResponse.id ?? null,
+        media: {
+            ...(mediaActivityItemResponse.attributes.media.data?.attributes ?? null),
+        },
+    }
+}
+
+export const transformMediaActivityItemResponseItems = (mediaActivityItemResponse: MediaActivityItemResponse[]): MediaActivityItem[] => {
+    return mediaActivityItemResponse.map(item => transformMediaActivityItemResponse(item))
 }

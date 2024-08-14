@@ -1026,6 +1026,39 @@ export interface ApiCustomSettingCustomSetting extends Schema.CollectionType {
   };
 }
 
+export interface ApiMediaActivityItemMediaActivityItem
+  extends Schema.CollectionType {
+  collectionName: 'media_activity_items';
+  info: {
+    singularName: 'media-activity-item';
+    pluralName: 'media-activity-items';
+    displayName: 'Media Activity Item';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    media: Attribute.Media<'images' | 'videos'> & Attribute.Required;
+    matchedUrl: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::media-activity-item.media-activity-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::media-activity-item.media-activity-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuItemMenuItem extends Schema.CollectionType {
   collectionName: 'menu_items';
   info: {
@@ -1532,6 +1565,7 @@ declare module '@strapi/types' {
       'api::case-progress-item.case-progress-item': ApiCaseProgressItemCaseProgressItem;
       'api::criminal-proceeding.criminal-proceeding': ApiCriminalProceedingCriminalProceeding;
       'api::custom-setting.custom-setting': ApiCustomSettingCustomSetting;
+      'api::media-activity-item.media-activity-item': ApiMediaActivityItemMediaActivityItem;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::officer.officer': ApiOfficerOfficer;

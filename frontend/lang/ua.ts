@@ -18,6 +18,9 @@ export default defineI18nLocale(async locale => {
                 'mass-media': {
                     label: 'ЗМІ',
                 },
+                'media-activity': {
+                    label: 'Медійна діяльність',
+                },
             }
         },
         layouts: {
@@ -125,6 +128,9 @@ export default defineI18nLocale(async locale => {
                 prev: 'Попередня новина',
                 next: 'Наступна новина',
             },
+        },
+        mediaActivity: {
+            title: 'Медійна діяльність',
         },
         viewsCount: 'Кількість переглядів',
     }
