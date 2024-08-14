@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type OfficerIdGraphqlReq from '~/@types/Requests/OfficerIdGraphqlReq'
 import type { Officer } from '~/@types/Officer'
+import type { ComponentPublicInstance } from 'vue'
 
 definePageMeta({
   pageTransition: false,
@@ -90,10 +91,10 @@ useHead({
   title: pageTitle,
 })
 
-const imageElem = ref<HTMLElement>()
+const imageElem = ref<ComponentPublicInstance>()
 onMounted(() => {
   setTimeout(() => {
-    imageElem.value?.classList.remove('officer-image')
+    imageElem.value?.$el.classList.remove('officer-image')
   }, 200)
 })
 </script>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type OfficerIdGraphqlReq from '~/@types/Requests/MassMediaIdGraphqlReq'
 import type { NewsItem } from '~/@types/NewsItem'
+import type { ComponentPublicInstance } from 'vue'
 
 definePageMeta({
   pageTransition: false,
@@ -90,12 +91,12 @@ useHead({
   title: pageTitle,
 })
 
-// const imageElem = ref<HTMLElement>()
-// onMounted(() => {
-//   setTimeout(() => {
-//     imageElem.value?.classList.remove('officer-image')
-//   }, 200)
-// })
+const imageElem = ref<ComponentPublicInstance>()
+onMounted(() => {
+  setTimeout(() => {
+    imageElem.value?.$el.classList.remove('news-image')
+  }, 200)
+})
 
 provide<boolean>('doNoCenterPageTitle', true)
 </script>
@@ -110,32 +111,26 @@ provide<boolean>('doNoCenterPageTitle', true)
       :prev-text="t('massMedia.nextPrev.prev')"
       :next-text="t('massMedia.nextPrev.next')"
     >
-<!--      <div class="clearfix">-->
-<!--        <div-->
-<!--            v-if="officer?.image?.url.length"-->
-<!--            class="float-left w-1/2 mr-12 mb-12"-->
-<!--        >-->
-<!--          <NuxtPicture-->
-<!--              ref="imageElem"-->
-<!--              provider="strapi"-->
-<!--              :src="officer?.image.url.replace('/uploads', '')"-->
-<!--              :alt="officer?.image?.alternativeText ?? ''"-->
-<!--              class="w-full officer-image"-->
-<!--          />-->
-<!--        </div>-->
-<!--        <div-->
-<!--            class="prose-base prose-p:text-faded-text-light prose-headings:mt-11 prose-headings:mb-8 prose-headings:text-3xl prose-headings:font-medium prose-headings:uppercase prose-headings:font-druk-wide"-->
-<!--            v-html="officer?.description"-->
-<!--        />-->
-<!--      </div>-->
+      <NuxtPicture
+        ref="imageElem"
+        provider="strapi"
+        :src="newsItem?.image.url.replace('/uploads', '')"
+        :alt="newsItem?.image?.alternativeText ?? ''"
+        class="block news-image mb-12"
+      />
+
+      <div
+        class="prose-base prose-p:text-faded-text-light prose-headings:mt-11 prose-headings:mb-8 prose-headings:text-3xl prose-headings:font-medium prose-headings:uppercase prose-headings:font-druk-wide"
+        v-html="newsItem?.description"
+      />
     </LayoutItemDetailsFramework>
 
     <HomeCaseProgressScroller v-if="data.data.caseProgressItems" />
   </div>
 </template>
 
-<!--<style scoped lang="postcss">-->
-<!--.officer-image {-->
-<!--  view-transition-name: officer-image;-->
-<!--}-->
-<!--</style>-->
+<style scoped lang="postcss">
+.news-image {
+  view-transition-name: news-image;
+}
+</style>

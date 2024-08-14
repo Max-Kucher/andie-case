@@ -36,7 +36,14 @@ const active = ref<boolean>(false)
       <AppBackgroundPicture
         v-if="newsItem.image?.url"
         :img="newsItem.image"
+        class="news-image"
       />
     </div>
   </div>
 </template>
+
+<style scoped lang="postcss">
+.active-list-item .news-image {
+  view-transition-name: news-image;
+}
+</style>
