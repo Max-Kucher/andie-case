@@ -1,0 +1,38 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - "./backend/public:/opt/app/public"
+    restart: always
+    networks:
+      - web
+      - strapi-app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: always
+    networks:
+      - web
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./etc/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
+    networks:
+      - web
+      - strapi-app
+
+networks:
+  web:
