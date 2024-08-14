@@ -11,10 +11,17 @@ onMounted(() => {
     titleElem.value?.classList.remove('item-page-title')
   }, 200)
 })
+
+const doNoCenterPageTitle = inject<boolean>('doNoCenterPageTitle', false)
 </script>
 
 <template>
-  <div class="flex flex-col items-center mt-20 pb-1 mb-16">
+  <div
+    class="flex flex-col mt-20 pb-1 mb-16"
+    :class="{
+      'items-center': !doNoCenterPageTitle,
+    }"
+  >
     <h1
       ref="titleElem"
       class="app-header item-page-title"

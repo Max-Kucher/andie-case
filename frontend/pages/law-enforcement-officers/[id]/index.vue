@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type OfficerIdGraphqlReq from '~/@types/Requests/OfficerIdGraphqlReq'
 import type { Officer } from '~/@types/Officer'
-import ItemDetailsFramework from "~/components/layout/ItemDetailsFramework.vue";
 
 definePageMeta({
   pageTransition: false,
@@ -101,7 +100,7 @@ onMounted(() => {
 
 <template>
   <div class="mb-16">
-    <ItemDetailsFramework
+    <LayoutItemDetailsFramework
       :id="Number(officer?.id ?? 0)"
       :title="pageTitle"
       :views-count="officer?.viewsCount ?? 0"
@@ -127,7 +126,7 @@ onMounted(() => {
           v-html="officer?.description"
         />
       </div>
-    </ItemDetailsFramework>
+    </LayoutItemDetailsFramework>
 
     <HomeCaseProgressScroller v-if="data.data.caseProgressItems" />
   </div>

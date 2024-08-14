@@ -15,6 +15,9 @@ export default defineI18nLocale(async locale => {
                 'law-enforcement-officers': {
                     label: 'Правопохоронці',
                 },
+                'mass-media': {
+                    label: 'ЗМІ',
+                },
             }
         },
         layouts: {
@@ -113,6 +116,15 @@ export default defineI18nLocale(async locale => {
         },
         massMedia: {
             title: 'ЗМІ',
+            errors: {
+                404: {
+                    title: 'Такої новини не знайдено',
+                },
+            },
+            nextPrev: {
+                prev: 'Попередня новина',
+                next: 'Наступна новина',
+            },
         },
         viewsCount: 'Кількість переглядів',
     }
