@@ -15,8 +15,7 @@ const alternateText = computed(() => {
 
 <template>
   <NuxtPicture
-    :src="typeof img === 'string' ? img : img.url.replace('/uploads', '')"
-    :provider="typeof img === 'string' ? undefined : 'strapi'"
+    :src="typeof img === 'string' ? img : buildBackendImageUrl($config, img)"
     class="absolute inset-0"
     :class="props.objectClass"
     :imgAttrs="{

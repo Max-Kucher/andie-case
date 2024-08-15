@@ -1,5 +1,6 @@
 import type { RuntimeConfig } from 'nuxt/schema'
 import { DomHandler, DomUtils, Parser } from 'htmlparser2'
+import type BackendImage from '~/@types/BackendImage'
 
 export function* arrayChunk<T>(arr: any[], n: number): Generator<T[], void> {
     for (let i = 0; i < arr.length; i += n) {
@@ -7,8 +8,14 @@ export function* arrayChunk<T>(arr: any[], n: number): Generator<T[], void> {
     }
 }
 
-export const buildBackendImageUrl = (runtimeConfig: RuntimeConfig, imagePath: string): string => {
-    return `${runtimeConfig.public.backendUrl}${imagePath}`
+export const buildBackendImageUrl = (runtimeConfig: RuntimeConfig, image: string | BackendImage): string => {
+    let url = image
+
+    if (typeof url !== 'string') {
+        url = url.url
+    }
+
+    return `${runtimeConfig.public.backendUrl}${url}`
 }
 
 export const stripTags = (html: string): string => {

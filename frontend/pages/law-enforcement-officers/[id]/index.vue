@@ -116,9 +116,8 @@ onMounted(() => {
         >
           <NuxtPicture
             ref="imageElem"
-            provider="strapi"
-            :src="officer?.image.url.replace('/uploads', '')"
-            :alt="officer?.image?.alternativeText ?? ''"
+            :src="buildBackendImageUrl($config, officer.image)"
+            :alt="officer.image.alternativeText ?? ''"
             class="w-full officer-image"
           />
         </div>

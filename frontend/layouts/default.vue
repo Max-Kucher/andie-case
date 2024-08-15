@@ -45,7 +45,7 @@ const headParams = computed(() => {
   }
 
   if (pageSettings?.ogImage !== undefined && pageSettings.ogImage.url !== undefined) {
-    head.meta.push({ property: 'og:description', content: buildBackendImageUrl(runtimeConfig, pageSettings.ogImage.url) })
+    head.meta.push({ property: 'og:image', content: buildBackendImageUrl(runtimeConfig, pageSettings.ogImage.url) })
   }
 
   return head

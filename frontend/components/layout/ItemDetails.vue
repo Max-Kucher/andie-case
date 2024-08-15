@@ -34,9 +34,8 @@ defineProps<{
       <NuxtPicture
         v-for="(image, idx) in images"
         :key="`criminal-procedding-details-${id}-${idx}`"
-        :src="image.url?.replace('/uploads', '')"
+        :src="buildBackendImageUrl($config, image)"
         :alt="image.alternativeText ?? ''"
-        provider="strapi"
       />
     </div>
   </LayoutItemDetailsFramework>

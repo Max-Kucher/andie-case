@@ -29,7 +29,7 @@ query MassMediaPage($pagination: PaginationArg!) {
   }
 }`
 
-const { pagination, backendPagination } = usePagination()
+const { pagination, backendPagination } = usePagination(9)
 
 const { data } = await useAPI<MediaActivityGraphqlReq>('/graphql', {
   method: 'POST',
@@ -55,8 +55,6 @@ watch(data, newVal => {
 }, { immediate: true })
 
 const { t } = useI18n()
-
-const runtimeConfig = useRuntimeConfig()
 </script>
 
 <template>
@@ -77,13 +75,12 @@ const runtimeConfig = useRuntimeConfig()
           :title="mediaItem.media?.alternativeText ?? ''"
         >
           <source
-            :src="buildBackendImageUrl(runtimeConfig, mediaItem.media.url)"
+            :src="buildBackendImageUrl($config, mediaItem.media)"
             type="video/mp4"
           />
         </video>
         <NuxtPicture
-          provider="strapi"
-          :src="mediaItem.media.url.replace('/uploads', '')"
+          :src="buildBackendImageUrl($config, mediaItem.media)"
           :alt="mediaItem.media?.alternativeText ?? ''"
         />
       </NuxtLinkLocale>

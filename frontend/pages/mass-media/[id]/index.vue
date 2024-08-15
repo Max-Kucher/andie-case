@@ -2,6 +2,7 @@
 import type OfficerIdGraphqlReq from '~/@types/Requests/MassMediaIdGraphqlReq'
 import type { NewsItem } from '~/@types/NewsItem'
 import type { ComponentPublicInstance } from 'vue'
+import {buildBackendImageUrl} from "~/utils/helpers";
 
 definePageMeta({
   pageTransition: false,
@@ -113,8 +114,7 @@ provide<boolean>('doNoCenterPageTitle', true)
     >
       <NuxtPicture
         ref="imageElem"
-        provider="strapi"
-        :src="newsItem?.image.url.replace('/uploads', '')"
+        :src="buildBackendImageUrl($config, newsItem?.image ?? '')"
         :alt="newsItem?.image?.alternativeText ?? ''"
         class="block news-image mb-12"
       />
