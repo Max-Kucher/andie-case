@@ -72,7 +72,7 @@ query IndexPage($locale: I18NLocaleCode!) {
   }
 }`
 
-const { data } = await useAPI<IndexPageGraphqlReq>('/graphql', {
+const { data, error } = await useAPI<IndexPageGraphqlReq>('/graphql', {
   method: 'POST',
   body: {
     query,
@@ -106,19 +106,19 @@ watch(data, newVal => {
 
 <template>
   <div>
-    <NewsWideBanner v-if="data.data.newsItems" />
+    <NewsWideBanner v-if="data?.data.newsItems" />
 
     <HomeWhoIsAndy />
 
-    <HomeCriminalProceedings v-if="data.data.criminalProceedings" />
+    <HomeCriminalProceedings v-if="data?.data.criminalProceedings" />
 
     <HomeCaseProgressScroller
-      v-if="data.data.caseProgressItems"
+      v-if="data?.data.caseProgressItems"
       class="pt-32 pb-5"
     />
 
-    <HomeOfficersScroller v-if="data.data.officers" />
+    <HomeOfficersScroller v-if="data?.data.officers" />
 
-    <HomeNewsList v-if="data.data.newsItems" />
+    <HomeNewsList v-if="data?.data.newsItems" />
   </div>
 </template>

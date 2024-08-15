@@ -32,7 +32,6 @@ services:
       - frontend
     networks:
       - web
-      - strapi-app
 
 networks:
   web:

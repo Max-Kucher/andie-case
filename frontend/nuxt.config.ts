@@ -30,6 +30,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: false },
   runtimeConfig: {
+    backendUrl: process.env.NUXT_ENV_SITE_BACKEND_PRIVATE_URL,
     public: {
       backendUrl: process.env.NUXT_ENV_SITE_BACKEND_URL,
     },
