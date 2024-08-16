@@ -52,6 +52,12 @@ const headParams = computed(() => {
 })
 
 useHead(headParams)
+
+const isMainMenuOpened = useState<boolean>('isMainMenuOpened')
+watch(isMainMenuOpened, newVal => {
+  document.documentElement.classList.toggle('overflow-hidden', newVal)
+  document.body.classList.toggle('overflow-hidden', newVal)
+})
 </script>
 
 <template>

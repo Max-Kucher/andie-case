@@ -15,10 +15,10 @@ const title = t('logo.title')
 
 <template>
   <component
-      :is="props.link ? nuxtLink : 'div'"
-      :to="props.link ? { name: 'index' }  : null"
-      :title="title"
-      class="block uppercase font-druk-wide font-medium text-[22px] leading-none transition-colors hover:text-white/90"
+    :is="props.link ? nuxtLink : 'div'"
+    :to="props.link ? { name: 'index' }  : null"
+    :title="title"
+    class="block uppercase font-druk-wide font-medium text-[17.3px] lg:text-[22px] leading-none transition-colors hover:text-white/90"
   >
     {{ title }}
   </component>

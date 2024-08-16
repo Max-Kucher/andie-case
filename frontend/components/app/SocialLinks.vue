@@ -1,4 +1,14 @@
 <script setup lang="ts">
+import { twMerge } from 'tailwind-merge'
+
+defineComponent({
+  inheritAttrs: false,
+})
+
+defineProps<{
+  class?: string
+}>()
+
 const id = useId()
 const { t } = useI18n()
 
@@ -6,7 +16,7 @@ const settings = inject<Record<string, string>>('AppSettings', {})
 </script>
 
 <template>
-  <div class="flex items-center gap-x-2.5">
+  <div :class="twMerge('flex items-center gap-x-2.5', $props.class)">
     <NuxtLink
       v-if="settings"
       v-for="social in ['x', 'instagram', 'youtube']"

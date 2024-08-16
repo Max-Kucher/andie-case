@@ -37,7 +37,10 @@ const active = useState()
             {{ item.title }}
           </span>
 
-          <span class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full">
+          <span
+            class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full"
+            role="button"
+          >
             <span class="absolute w-1/2 top-1/2 left-1/2 bg-black rounded -translate-x-1/2 -translate-y-1/2" />
             <span class="absolute w-1/2 top-1/2 left-1/2 bg-black rounded -translate-x-1/2 -translate-y-1/2 rotate-90 transition-transform" />
           </span>

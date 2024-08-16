@@ -29,6 +29,7 @@ export default defineI18nLocale(async locale => {
                 prev: 'До попередніх',
                 next: 'До наступних',
             },
+            menu: 'Меню',
         },
         share: {
             title: 'Поширити',
