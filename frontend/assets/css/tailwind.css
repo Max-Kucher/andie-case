@@ -17,7 +17,7 @@
 }
 
 .app-layout-cols {
-    @apply grid grid-cols-3 gap-x-5
+    @apply tablet:grid tablet:grid-cols-3 lg:gap-x-5 tablet:gap-x-3;
 }
 
 ::selection {

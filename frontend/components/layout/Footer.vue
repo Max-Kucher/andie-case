@@ -1,18 +1,26 @@
+<script setup lang="ts">
+import { twMerge } from 'tailwind-merge'
+
+const buttonsJoinCommunityClass = 'text-black lg:ml-auto w-max'
+</script>
+
 <template>
   <footer class="bg-black text-white">
-    <LayoutContainer class="pt-24 pb-36 app-layout-cols">
-      <div class="pt-5">
-        <AppLogo class="mb-10" />
+    <LayoutContainer class="max-tablet:pt-12 max-tablet:pb-16 tablet:max-lg:pt-16 tablet:max-lg:pb-24 lg:pt-24 lg:pb-36 app-layout-cols">
+      <div class="flex flex-wrap gap-x-6 justify-between tablet:block pt-2 lg:pt-5 space-y-6">
+        <AppLogo class="w-full tablet:mb-10" />
 
         <LayoutFooterSocials />
+
+        <ButtonsJoinCommunity :class="twMerge(buttonsJoinCommunityClass, 'lg:hidden')" />
       </div>
 
-      <div class="order-2 lg:order-1">
+      <div class="mt-10 tablet:mt-0 tablet:max-lg:col-span-2 lg:col-span-1">
         <AppFooterMenu />
       </div>
 
-      <div class="pt-5 order-1 lg:order-2">
-        <ButtonsJoinCommunity class="text-black ml-auto w-max" />
+      <div class="max-lg:hidden lg:block lg:pt-5">
+        <ButtonsJoinCommunity :class="buttonsJoinCommunityClass" />
       </div>
     </LayoutContainer>
   </footer>

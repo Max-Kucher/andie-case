@@ -8,12 +8,12 @@ const isMainMenuOpened = useState<boolean>('isMainMenuOpened')
       <div class="py-7 flex items-center justify-between">
         <AppLogo class="text-white" />
 
-        <ButtonsJoinCommunity class="hidden tablet:flex" />
+        <ButtonsJoinCommunity class="max-tablet:hidden tablet:flex" />
 
         <LayoutHeaderMobileButtons />
       </div>
 
-      <div class="hidden tablet:block opacity-30 border-b border-b-white" />
+      <div class="max-tablet:hidden tablet:block opacity-30 border-b border-b-white" />
     </LayoutContainer>
 
     <LayoutContainer
@@ -24,7 +24,7 @@ const isMainMenuOpened = useState<boolean>('isMainMenuOpened')
     >
       <AppMainMenu />
 
-      <AppSocialLinks class="hidden lg:flex" />
+      <AppSocialLinks class="max-lg:hidden lg:flex" />
     </LayoutContainer>
   </header>
 </template>

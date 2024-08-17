@@ -26,6 +26,8 @@ const settings = inject<Record<string, string>>('AppSettings', {})
       class="w-[24px] tablet:w-[27px] lg:w-[32px]"
     />
 
-    {{ t('common.joinCommunity.button.text') }}
+    <span class="max-w-[114px] tablet:max-w-none">
+      {{ t('common.joinCommunity.button.text') }}
+    </span>
   </NuxtLink>
 </template>
