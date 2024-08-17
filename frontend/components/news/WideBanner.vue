@@ -24,8 +24,8 @@ const banner = computed(() => {
     />
 
     <LayoutContainer class="app-layout-cols relative z-20">
-      <div class="font-medium col-span-2 mt-56 lg:mb-32">
-        <div class="flex gap-x-8 text-xl mb-8">
+      <div class="font-medium tablet:max-lg:col-span-3 lg:col-span-2 tablet:mt-64 tablet:mb-36 max-tablet:pt-52 max-tablet:pb-12">
+        <div class="flex gap-x-8 text-xl mb-4 lg:mb-8">
           <time :datetime="banner.createdAt">
             {{ formatDate('H:i d.m.Y', banner.createdAt) }}
           </time>
@@ -43,6 +43,6 @@ const banner = computed(() => {
 
 <style lang="postcss" scoped>
 h1 {
-  @apply text-[53px] leading-[112%];
+  @apply max-tablet:text-[33px] tablet:max-lg:text-[45px] lg:text-[53px] leading-[112%];
 }
 </style>
