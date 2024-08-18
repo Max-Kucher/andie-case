@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ComponentPublicInstance } from 'vue'
+
 defineProps<{
   title: string
   viewsCount: number
@@ -25,7 +27,9 @@ const doNoCenterPageTitle = inject<boolean>('doNoCenterPageTitle', false)
     <h1
       ref="titleElem"
       class="app-header item-page-title"
-    >{{ title }}</h1>
+    >
+      {{ title }}
+    </h1>
 
     <div class="flex mt-7 font-medium gap-x-9">
       <time
