@@ -24,6 +24,7 @@ export default {
       },
       screens: {
         'tablet': '834px',
+        'small-tablet': '700px',
       },
     },
   },
