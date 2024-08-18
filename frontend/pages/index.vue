@@ -114,7 +114,7 @@ watch(data, newVal => {
 
     <HomeCaseProgressScroller
       v-if="data?.data.caseProgressItems"
-      class="pt-32 pb-5"
+      class="small-tablet:max-lg:pt-16 lg:pt-32 lg:pb-5"
     />
 
     <HomeOfficersScroller v-if="data?.data.officers" />

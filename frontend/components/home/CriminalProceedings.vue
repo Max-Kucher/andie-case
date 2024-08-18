@@ -9,10 +9,10 @@ const active = useState()
 </script>
 
 <template>
-<section class="pt-24 lg:pt-28 max-small-tablet:pb-12 small-tablet:pb-20 bg-[#E6EBE6]">
+<section class="pt-24 lg:pt-28 max-small-tablet:pb-12 small-tablet:max-lg:pb-16 lg:pb-20 bg-[#E6EBE6]">
   <LayoutContainer>
 
-    <div class="flex">
+    <div class="flex max-lg:mb-6 lg:mb-11">
       <I18nT
         keypath="criminalProceedings.block.title"
         scope="global"
@@ -23,7 +23,7 @@ const active = useState()
       </I18nT>
     </div>
 
-    <div class="mt-11">
+    <div>
       <details
         v-for="item in criminalProceedings"
         :key="`home-criminal-proceedings-${item.id}`"

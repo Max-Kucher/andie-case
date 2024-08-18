@@ -1,7 +1,10 @@
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   viewsCount: number
-}>()
+  imageWidth?: number
+}>(), {
+  imageWidth: 22,
+})
 
 const { t } = useI18n()
 </script>
@@ -9,9 +12,9 @@ const { t } = useI18n()
 <template>
   <div class="flex gap-1.5">
     <NuxtImg
-        src="/images/icons/eye.svg"
-        :width="22"
-        :alt="t('viewsCount')"
+      src="/images/icons/eye.svg"
+      :width="$props.imageWidth"
+      :alt="t('viewsCount')"
     />
 
     {{ viewsCount }}

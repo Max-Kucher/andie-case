@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div
-    class="mb-11 flex"
+    class="max-lg:mb-6 lg:mb-11 flex"
     :class="{ 'justify-between items-center gap-5': to || linkText }"
   >
     <h3 class="app-header">

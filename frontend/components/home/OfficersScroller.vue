@@ -8,17 +8,14 @@ const { t } = useI18n()
 
 <template>
   <section>
-    <LayoutContainer class="pt-16 pb-11">
+    <LayoutContainer class="max-lg:pt-12 lg:pt-16 max-lg:pb-9 lg:pb-11">
       <LayoutBlockTitle
         :title="t('officers.title')"
         :link-text="t('officers.block.readMore')"
         :to="{ name: 'law-enforcement-officers' }"
       />
 
-      <AppScroller
-        :slides-per-view="3"
-        :space-between="22"
-      >
+      <AppScroller>
         <SwiperSlide
           v-for="officer in officers"
           :key="`officer-slide-${officer.id}`"

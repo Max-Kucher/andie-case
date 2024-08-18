@@ -18,6 +18,13 @@ withDefaults(defineProps<{
 })
 
 const active = ref<boolean>(false)
+
+const viewsImageSize = ref<number>(22)
+onMounted(() => {
+  if (window?.innerWidth < 1024) {
+    viewsImageSize.value = 12
+  }
+})
 </script>
 
 <template>
@@ -32,19 +39,23 @@ const active = ref<boolean>(false)
         :img="image"
       />
 
-      <div class="relative z-20 px-3.5 pt-9 pb-8">
+      <div class="relative z-20 px-3.5 max-lg:py-5 lg:pt-9 lg:pb-8">
         <div class="flex justify-between items-center font-medium">
           <time
             :datetime="createdAt.toString()"
-            class="text-lg"
+            class="max-lg:text-xs lg:text-lg"
           >
             {{ formatDate('d.m.Y', createdAt) }}
           </time>
 
-          <LayoutViewsCount :views-count="viewsCount" />
+          <LayoutViewsCount
+            :views-count="viewsCount"
+            :image-width="viewsImageSize"
+            class="max-lg:text-xs"
+          />
         </div>
 
-        <div class="list-item-title text-3xl max-w-[60%] mt-24">
+        <div class="list-item-title leading-[1.08] small-tablet:max-lg:text-[20px] lg:text-[33px] font-medium max-lg:max-w-36 lg:max-w-52 max-lg:mt-16 lg:mt-24">
           {{ title }}
         </div>
       </div>
@@ -58,18 +69,19 @@ const active = ref<boolean>(false)
       />
 
       <div
-        class="px-3.5 pt-12 pb-6 relative z-10"
+        class="px-3.5 max-lg:pt-2.5 lg:pt-12 max-lg:pb-3 lg:pb-6 relative z-10"
         :class="backgroundClass"
       >
         <div
-          class="line-clamp-4 h-24"
+          class="line-clamp-4 max-lg:text-xs"
           v-html="description"
         />
 
         <ButtonsDarkReadMore
           :to="to"
+          :image-width="viewsImageSize"
+          class="mt-3.5 max-lg:py-1 max-lg:px-2 max-lg:text-sm"
           @click.native="active = true"
-          class="mt-3.5"
         />
       </div>
     </div>
