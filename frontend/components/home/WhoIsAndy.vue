@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { ComponentPublicInstance } from 'vue'
-
 const { t } = useI18n()
 
 const mobileHeader = ref<HTMLElement>()
