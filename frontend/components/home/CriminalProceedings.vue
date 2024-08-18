@@ -9,7 +9,7 @@ const active = useState()
 </script>
 
 <template>
-<section class="pt-28 pb-20 bg-[#E6EBE6]">
+<section class="pt-24 lg:pt-28 pb-20 bg-[#E6EBE6]">
   <LayoutContainer>
 
     <div class="flex">
