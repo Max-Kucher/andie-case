@@ -9,7 +9,7 @@ const active = useState()
 </script>
 
 <template>
-<section class="pt-24 lg:pt-28 pb-20 bg-[#E6EBE6]">
+<section class="pt-24 lg:pt-28 max-small-tablet:pb-12 small-tablet:pb-20 bg-[#E6EBE6]">
   <LayoutContainer>
 
     <div class="flex">
@@ -32,13 +32,13 @@ const active = useState()
           'active-list-item': active === item.id,
         }"
       >
-        <summary class="marker:content-none flex items-center justify-between text-2xl font-medium py-5 cursor-pointer">
+        <summary class="marker:content-none flex items-center justify-between gap-x-20 max-small-tablet:text-[18px] small-tablet:max-lg:text-[22px] max-lg:leading-[1.08] lg:text-2xl font-medium py-5 cursor-pointer">
           <span class="list-item-title">
             {{ item.title }}
           </span>
 
           <span
-            class="mc-summary-btn relative block w-10 h-10 border border-black rounded-full"
+            class="mc-summary-btn relative block max-lg:min-w-8 max-lg:h-8 lg:min-w-10 lg:h-10 border border-black rounded-full"
             role="button"
           >
             <span class="absolute w-1/2 top-1/2 left-1/2 bg-black rounded -translate-x-1/2 -translate-y-1/2" />
@@ -58,7 +58,7 @@ const active = useState()
 
     <NuxtLinkLocale
       :to="{ name: 'criminal-proceedings' }"
-      class="app-button flex items-center h-14 bg-black text-white w-max mt-14 mx-auto transition-colors hover:text-accent hover:bg-light-black"
+      class="app-button flex items-center h-14 bg-black text-white max-small-tablet:justify-center small-tablet:w-max max-small-tablet:mt-10 small-tablet:max-lg:mt-12 lg:mt-14 mx-auto transition-colors hover:text-accent hover:bg-light-black"
     >
       {{ t('criminalProceedings.block.button') }}
     </NuxtLinkLocale>
