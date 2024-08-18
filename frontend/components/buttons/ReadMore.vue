@@ -21,7 +21,10 @@ const readFullTxt = computed(() => {
     :to="to"
     class="app-button gap-x-2 inline-flex"
   >
-    {{ readFullTxt }}
+    <slot v-if="$slots.default" />
+    <span v-else>
+      {{ readFullTxt }}
+    </span>
 
     <NuxtImg
       src="/images/icons/button-arrow.svg"

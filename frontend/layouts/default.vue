@@ -20,20 +20,25 @@ const headParams = computed(() => {
     return {}
   }
 
-  const routeName = route.name?.split('___')[0]
+  const routeName = (route.name as string)?.split('___')[0]
 
   const pageSettings = pagesSettings.find(page => {
     return page.name === routeName
   })
 
-  const title = `${pageSettings?.title ?? ''} - ${defaultTitle}`
-
-  const head = {
-    title,
+  const head: {
+    title?: string
+    meta: {}[]
+  } = {
     meta: [
       { name: 'theme-color', content: '#000000' },
-      { property: 'og:title', content: title },
     ],
+  }
+
+  if (pageSettings?.title) {
+    const title = `${pageSettings?.title ?? ''} - ${defaultTitle}`
+    head.title = title
+    head.meta.push({ name: 'og:title', content: title })
   }
 
   if (pageSettings?.description !== undefined && pageSettings.description?.length) {

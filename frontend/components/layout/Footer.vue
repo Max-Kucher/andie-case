@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
 
-const buttonsJoinCommunityClass = 'text-black lg:ml-auto w-max'
+const buttonsJoinCommunityClass = 'text-black w-max'
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const buttonsJoinCommunityClass = 'text-black lg:ml-auto w-max'
       </div>
 
       <div class="max-lg:hidden lg:block lg:pt-5">
-        <ButtonsJoinCommunity :class="buttonsJoinCommunityClass" />
+        <ButtonsJoinCommunity :class="twMerge(buttonsJoinCommunityClass, 'lg:ml-auto')" />
       </div>
     </LayoutContainer>
   </footer>

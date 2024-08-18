@@ -134,5 +134,8 @@ export default defineI18nLocale(async locale => {
             title: 'Медійна діяльність',
         },
         viewsCount: 'Кількість переглядів',
+        errors: {
+            goBackHome: 'Повернутися на головну',
+        },
     }
 })
