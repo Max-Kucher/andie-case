@@ -23,7 +23,7 @@ onMounted(() => {
       'active-list-item': active
     }"
   >
-    <div class="relative bg-placeholder small-tablet:max-lg:h-40 lg:h-60">
+    <div class="relative bg-placeholder max-lg:h-40 lg:h-60">
       <AppBackgroundPicture
         v-if="item.image?.url"
         :img="item.image"

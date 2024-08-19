@@ -17,6 +17,7 @@ const id = useId()
       ...$props,
       ...$attrs,
     }"
+    class="max-sm:!-mr-4 sm:max-small-tablet:!-mr-6"
   >
     <slot />
 

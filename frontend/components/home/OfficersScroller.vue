@@ -10,10 +10,15 @@ const { t } = useI18n()
   <section>
     <LayoutContainer class="max-lg:pt-12 lg:pt-16 max-lg:pb-9 lg:pb-11">
       <LayoutBlockTitle
-        :title="t('officers.title')"
         :link-text="t('officers.block.readMore')"
         :to="{ name: 'law-enforcement-officers' }"
-      />
+      >
+        <I18nT
+          keypath="officers.block.title"
+          scope="global"
+          tag="span"
+        >&shy;</I18nT>
+      </LayoutBlockTitle>
 
       <AppScroller>
         <SwiperSlide

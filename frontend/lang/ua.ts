@@ -97,9 +97,10 @@ export default defineI18nLocale(async locale => {
             },
         },
         officers: {
-            title: 'Правопохоронці',
+            title: "Правопохоронці",
             readMore: 'Читати досьє',
             block: {
+                title: 'Право{0}похоронці',
                 readMore: 'Дивитись усі досьє',
             },
             errors: {
