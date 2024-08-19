@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SERVER: ${{ secrets.SERVER_IP }}
+      USER: ${{ secrets.SERVER_USER }}
+      PORT: ${{ secrets.SERVER_PORT }}
+      PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Deploy to OVH VPS
+        run: |
+          sshpass -p "${{ env.PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ env.USER }}@${{ env.SERVER }} -p ${{ env.PORT }} "
+            cd /var/www/html &&
+            git fetch &&
+            git checkout ${{ github.ref_name }} &&
+            git reset --hard origin/${{ github.ref_name }} &&
+            docker compose down &&
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+          "
+
+      - name: Clean up Docker (optional)
+        run: |
+         sshpass -p "${{ env.PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ env.USER }}@${{ env.SERVER }} -p ${{ env.PORT }} "
+           docker system prune -f
+         "

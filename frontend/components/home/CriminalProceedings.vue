@@ -83,4 +83,8 @@ details[open] {
 details[open] .mc-summary-btn span:last-child {
   transform: translate(-50%, -50%);
 }
+
+summary::-webkit-details-marker {
+  @apply hidden;
+}
 </style>
