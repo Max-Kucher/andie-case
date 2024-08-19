@@ -2,6 +2,7 @@
 withDefaults(defineProps<{
   viewsCount: number
   imageWidth?: number
+  invertImage?: boolean
 }>(), {
   imageWidth: 22,
 })
@@ -15,6 +16,9 @@ const { t } = useI18n()
       src="/images/icons/eye.svg"
       :width="$props.imageWidth"
       :alt="t('viewsCount')"
+      :class="{
+        'invert': invertImage,
+      }"
     />
 
     {{ viewsCount }}

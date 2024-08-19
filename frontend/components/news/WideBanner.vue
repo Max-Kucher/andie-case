@@ -11,7 +11,7 @@ const banner = computed(() => {
 <template>
   <NuxtLinkLocale
     :to="{ name: 'mass-media-id', params: { id: banner.id } }"
-    class="bg-placeholder relative block"
+    class="bg-placeholder relative block text-white"
   >
     <AppBackgroundPicture
       v-if="banner.image?.url"
@@ -20,7 +20,7 @@ const banner = computed(() => {
 
     <div
       v-if="banner.image?.url"
-      class="absolute inset-0 bg-black opacity-30 z-10"
+      class="absolute inset-0 bg-black opacity-80 z-10"
     />
 
     <LayoutContainer class="app-layout-cols relative z-20">
@@ -30,7 +30,10 @@ const banner = computed(() => {
             {{ formatDate('H:i d.m.Y', banner.createdAt) }}
           </time>
 
-          <LayoutViewsCount :views-count="banner.viewsCount" />
+          <LayoutViewsCount
+            invert-image
+            :views-count="banner.viewsCount"
+          />
         </div>
 
         <h1>

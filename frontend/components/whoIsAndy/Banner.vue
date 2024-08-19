@@ -11,7 +11,7 @@ defineProps<{
     <AppBackgroundPicture
       v-if="banner.image?.url"
       :img="banner.image"
-      object-class="object-contain"
+      object-class="small-tablet:object-contain max-small-tablet:object-cover"
       class="z-10"
     />
 
@@ -38,7 +38,7 @@ defineProps<{
 }
 
 .banner-title {
-  @apply text-[94.54px] pb-80 pt-96;
+  @apply max-small-tablet:text-[38.3px] max-small-tablet:pb-52 max-small-tablet:pt-64 small-tablet:max-lg:text-[55.8px] small-tablet:max-lg:pb-60 small-tablet:max-lg:pt-72 lg:text-[94.54px] lg:pb-80 lg:pt-96;
 }
 
 .andy-banner-gradient {

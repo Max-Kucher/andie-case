@@ -20,7 +20,7 @@ const { t } = useI18n()
         >&shy;</I18nT>
       </LayoutBlockTitle>
 
-      <AppScroller>
+      <AppScroller class="max-sm:!-mr-4 sm:max-small-tablet:!-mr-6">
         <SwiperSlide
           v-for="officer in officers"
           :key="`officer-slide-${officer.id}`"

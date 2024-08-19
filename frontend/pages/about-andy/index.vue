@@ -54,7 +54,7 @@ const { data } = await useAPI<AboutAndyGraphqlReq>('/graphql', {
     <WhoIsAndyScroller
       v-if="data.data.whoIsAndyBanners"
       :banners="transformWhoIsAndyBannersResponseItems(data.data.whoIsAndyBanners.data)"
-      class="!pt-10"
+      class="max-lg:!pt-1 lg:!pt-10"
     />
 
     <LayoutContainer class="pt-8 pb-24">

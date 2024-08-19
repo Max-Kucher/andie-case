@@ -16,7 +16,7 @@ const { t } = useI18n()
         class="case-progress-title"
       />
 
-      <AppScroller>
+      <AppScroller class="max-sm:!-mr-4 sm:max-small-tablet:!-mr-6">
         <SwiperSlide
           v-for="(caseProgressItem, idx) in caseProgressItems"
           :key="`case-progress-item-${idx}`"
