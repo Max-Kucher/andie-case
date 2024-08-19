@@ -33,7 +33,7 @@ jobs:
             docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
           "
 
-      - name: Clean up Docker (optional)
+      - name: Clean up Docker
         run: |
          sshpass -p "${{ env.PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ env.USER }}@${{ env.SERVER }} -p ${{ env.PORT }} "
            docker system prune -f

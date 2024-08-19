@@ -100,8 +100,6 @@ onMounted(() => {
 })
 
 provide<boolean>('doNoCenterPageTitle', true)
-
-console.log(2)
 </script>
 
 <template>
