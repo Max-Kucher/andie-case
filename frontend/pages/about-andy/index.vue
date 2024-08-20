@@ -61,7 +61,7 @@ const { data } = await useAPI<AboutAndyGraphqlReq>('/graphql', {
       <section
         v-if="data.data.whoIsAndy"
         v-html="transformContentPageResponse(data.data.whoIsAndy.data).description"
-        class="prose-base prose-p:text-faded-text-light prose-headings:mt-11 prose-headings:mb-8 prose-headings:text-3xl prose-headings:font-medium prose-headings:uppercase prose-headings:font-druk-wide"
+        class="app-prose"
       />
     </LayoutContainer>
   </div>

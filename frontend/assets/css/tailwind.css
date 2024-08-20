@@ -47,3 +47,7 @@
 .active-list-item .list-item-title, .item-page-title {
     view-transition-name: page-title;
 }
+
+.app-prose {
+    @apply prose-base prose-p:text-faded-text-light prose-headings:mt-11 max-tablet:prose-headings:mb-6 max-tablet:prose-headings:text-xl tablet:prose-headings:mb-8 tablet:prose-headings:text-3xl prose-headings:font-medium prose-headings:uppercase prose-headings:font-druk-wide;
+}

@@ -17,11 +17,11 @@ const isOpened = useState<boolean>('isMainMenuOpened')
     }"
   >
     <button
-      class="fixed tablet:hidden top-3 right-3 w-7 h-7 rotate-45"
+      class="fixed tablet:hidden top-9 right-4 w-7 h-7 rotate-45"
       @click="isOpened = !isOpened"
     >
-      <span class="absolute w-full h-0.5 top-1/2 left-1/2 bg-white rounded -translate-x-1/2 -translate-y-1/2" />
-      <span class="absolute w-full h-0.5 top-1/2 left-1/2 bg-white rounded -translate-x-1/2 -translate-y-1/2 rotate-90" />
+      <span class="absolute w-full h-[3px] top-1/2 left-1/2 bg-white rounded -translate-x-1/2 -translate-y-1/2" />
+      <span class="absolute w-full h-[3px] top-1/2 left-1/2 bg-white rounded -translate-x-1/2 -translate-y-1/2 rotate-90" />
     </button>
 
     <ul
