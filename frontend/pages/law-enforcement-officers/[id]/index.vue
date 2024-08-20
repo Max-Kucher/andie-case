@@ -112,13 +112,14 @@ onMounted(() => {
       <div class="clearfix">
         <div
           v-if="officer?.image?.url.length"
-          class="float-left w-1/2 mr-12 mb-12"
+          class="max-tablet:pb-2 tablet:float-left tablet:w-1/2 tablet:mr-12 tablet:mb-8"
         >
           <NuxtPicture
             ref="imageElem"
             :src="buildBackendImageUrl($config, officer.image)"
             :alt="officer.image.alternativeText ?? ''"
             class="w-full officer-image"
+            sizes="100vw"
           />
         </div>
         <div

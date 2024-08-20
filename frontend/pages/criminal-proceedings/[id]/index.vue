@@ -103,7 +103,7 @@ useHead({
 
     <HomeOfficersScroller
       v-if="data.data.officers"
-      class="mt-16"
+      class="max-lg:mt-12 lg:mt-16"
     />
   </div>
 </template>

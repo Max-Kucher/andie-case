@@ -29,7 +29,7 @@ defineProps<{
 
     <div
       v-if="images?.length"
-      class="grid grid-cols-2 gap-7 mt-12"
+      class="grid tablet:grid-cols-2 gap-7 max-small-tablet:mt-6 small-tablet:mt-12"
     >
       <NuxtPicture
         v-for="(image, idx) in images"

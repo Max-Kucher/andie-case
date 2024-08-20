@@ -63,7 +63,7 @@ const { t } = useI18n()
 
     <ListsPageTitle :title="t('mediaActivity.title')" />
 
-    <div class="app-layout-cols gap-y-5 mb-12">
+    <div class="app-layout-cols lg:gap-y-5 max-small-tablet:grid max-small-tablet:grid-cols-3 max-small-tablet:gap-3 max-small-tablet:mb-10 small-tablet:mb-12">
       <NuxtLinkLocale
         v-for="mediaItem in mediaActivityItems"
         :key="`media-activity-item-${mediaItem.id}`"
@@ -82,6 +82,7 @@ const { t } = useI18n()
         <NuxtPicture
           :src="buildBackendImageUrl($config, mediaItem.media)"
           :alt="mediaItem.media?.alternativeText ?? ''"
+          sizes="100vw"
         />
       </NuxtLinkLocale>
     </div>

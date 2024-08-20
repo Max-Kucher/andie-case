@@ -28,7 +28,7 @@ const shareTitle = t('share.title')
 </script>
 
 <template>
-  <div class="mt-16 border-b border-black/20">
+  <div class="max-small-tablet:mt-10 small-tablet:max-lg:mt-12 lg:mt-16 border-b border-black/20">
     <div
       class="inline-flex gap-x-2 text-lg font-medium cursor-pointer"
       @click="clickHandler"

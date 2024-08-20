@@ -19,19 +19,19 @@ const doNoCenterPageTitle = inject<boolean>('doNoCenterPageTitle', false)
 
 <template>
   <div
-    class="flex flex-col mt-20 pb-1 mb-16"
+    class="flex flex-col max-small-tablet:mt-10 small-tablet:max-lg:mt-16 lg:mt-20 max-small-tablet:mb-10 small-tablet:max-lg:mb-12 lg:mb-16"
     :class="{
       'items-center': !doNoCenterPageTitle,
     }"
   >
     <h1
       ref="titleElem"
-      class="app-header item-page-title"
+      class="app-header item-page-title max-small-tablet:max-w-xs small-tablet:max-lg:max-w-lg text-center"
     >
       {{ title }}
     </h1>
 
-    <div class="flex mt-7 font-medium gap-x-9">
+    <div class="flex max-lg:mt-3 lg:mt-7 font-medium gap-x-9">
       <time
         :datetime="createdAt.toString()"
         class="text-lg"
