@@ -30,7 +30,7 @@ jobs:
             git checkout ${{ github.ref_name }} &&
             git reset --hard origin/${{ github.ref_name }} &&
             docker compose down &&
-            docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.web.yml up -d --build
           "
 
       - name: Clean up Docker

@@ -1,0 +1,7 @@
+
+services:
+  frontend:
+    build:
+      args:
+        NUXT_ENV_SITE_BACKEND_PRIVATE_URL: "http://backend:1337"
+        NUXT_ENV_SITE_BACKEND_URL: "http://135.125.133.202"
