@@ -12,7 +12,7 @@ const url = computed(() => {
 
 const { t } = useI18n()
 const clickHandler = () => {
-  if (navigator.share === undefined) {
+  if (navigator.share === undefined || window.location.protocol !== 'https:') {
     navigator.clipboard.writeText(url.value).then(() => {
       alert(t('share.linkCopied'))
     })

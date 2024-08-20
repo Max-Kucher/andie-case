@@ -14,7 +14,7 @@ const id = useId()
 </script>
 
 <template>
-  <ul class="flex gap-1 text-sm font-medium leading-none mt-12">
+  <ul class="flex gap-1 text-sm font-medium leading-none max-small-tablet:mt-7 small-tablet:max-lg:mt-10 lg:mt-12">
     <li
       v-for="(breadcrumb, idx) in breadcrumbs"
       :key="`breadcrumbs-${id}-${idx}`"

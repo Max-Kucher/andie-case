@@ -18,7 +18,7 @@ const nextPage = computed(() => {
 </script>
 
 <template>
-  <div class="flex gap-x-6 justify-center mb-24">
+  <div class="flex max-small-tablet:gap-x-4 small-tablet:gap-x-6 justify-center max-tablet:mb-16 tablet:mb-24">
     <ButtonsPagination
       :text="t('layouts.pagination.prev')"
       :to="{ name: route.name }"
