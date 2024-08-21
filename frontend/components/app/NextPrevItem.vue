@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  prevText: string
-  nextText: string
+  prevText?: string
+  nextText?: string
 }>()
 
 const route = useRoute()
@@ -18,16 +18,26 @@ const { data } = await useAPI<{
 <template>
   <div class="flex gap-x-6 justify-center">
     <ButtonsPagination
-      :text="prevText"
+      :text="prevText ?? ''"
       :to="{ name: route.name, params: { id: data?.prev ?? 0 } }"
       :disabled="data?.prev === null"
-    />
+    >
+      <slot
+        v-if="$slots.prevText"
+        name="prevText"
+      />
+    </ButtonsPagination>
 
     <ButtonsPagination
-      :text="nextText"
+      :text="nextText ?? ''"
       :to="{ name: route.name, params: { id: data?.next ?? 0 } }"
       :disabled="data?.next === null"
       is-next
-    />
+    >
+      <slot
+        v-if="$slots.prevText"
+        name="nextText"
+      />
+    </ButtonsPagination>
   </div>
 </template>

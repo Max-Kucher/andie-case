@@ -106,8 +106,6 @@ onMounted(() => {
       :title="pageTitle"
       :views-count="officer?.viewsCount ?? 0"
       :created-at="officer?.createdAt ?? ''"
-      :prev-text="t('officers.nextPrev.prev')"
-      :next-text="t('officers.nextPrev.next')"
     >
       <div class="clearfix">
         <div
@@ -127,6 +125,20 @@ onMounted(() => {
           v-html="officer?.description"
         />
       </div>
+
+      <template #paginationPrevText>
+        <I18nT
+          keypath="officers.nextPrev.prev"
+          scope="global"
+        >&shy;</I18nT>
+      </template>
+
+      <template #paginationNextText>
+        <I18nT
+          keypath="officers.nextPrev.next"
+          scope="global"
+        >&shy;</I18nT>
+      </template>
     </LayoutItemDetailsFramework>
 
     <HomeCaseProgressScroller v-if="data.data.caseProgressItems" />

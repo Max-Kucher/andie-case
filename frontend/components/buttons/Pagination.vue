@@ -28,13 +28,18 @@ const query = computed(() => {
 <template>
   <NuxtLink
     :to="{ ...to, query }"
-    class="app-button gap-x-1.5 inline-flex text-white transition-colors"
+    class="app-button gap-x-1.5 inline-flex text-white transition-colors hyphens-auto text-wrap"
     :class="{
       'bg-[#E9E9E9] pointer-events-none': disabled,
       'bg-black hover:bg-light-black hover:text-accent': !disabled,
     }"
   >
-    {{ text }}
+    <template v-if="$slots.default">
+      <slot />
+    </template>
+    <template v-else>
+      {{ text }}
+    </template>
 
     <NuxtImg
       src="/images/icons/button-arrow.svg"

@@ -29,13 +29,14 @@ defineProps<{
 
     <div
       v-if="images?.length"
-      class="grid tablet:grid-cols-2 gap-7 max-small-tablet:mt-6 small-tablet:mt-12"
+      class="grid tablet:grid-cols-2 max-small-tablet:gap-y-5 small-tablet:gap-7 max-small-tablet:mt-6 small-tablet:mt-12"
     >
       <NuxtPicture
         v-for="(image, idx) in images"
         :key="`criminal-procedding-details-${id}-${idx}`"
         :src="buildBackendImageUrl($config, image)"
         :alt="image.alternativeText ?? ''"
+        sizes="100vw"
       />
     </div>
   </LayoutItemDetailsFramework>
