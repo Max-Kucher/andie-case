@@ -26,7 +26,10 @@ const doNoCenterPageTitle = inject<boolean>('doNoCenterPageTitle', false)
   >
     <h1
       ref="titleElem"
-      class="app-header item-page-title max-small-tablet:max-w-xs small-tablet:max-lg:max-w-lg text-center"
+      class="app-header item-page-title"
+      :class="{
+        'text-center max-small-tablet:max-w-xs small-tablet:max-lg:max-w-lg': !doNoCenterPageTitle,
+      }"
     >
       {{ title }}
     </h1>

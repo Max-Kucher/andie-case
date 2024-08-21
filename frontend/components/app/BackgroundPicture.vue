@@ -5,7 +5,7 @@ const props = withDefaults(defineProps<{
   img: BackendImage | string
   objectClass?: string
 }>(), {
-  objectClass: 'object-fill',
+  objectClass: 'small-tablet:object-fill max-small-tablet:object-cover',
 })
 
 const alternateText = computed(() => {

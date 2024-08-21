@@ -117,6 +117,7 @@ provide<boolean>('doNoCenterPageTitle', true)
         :src="buildBackendImageUrl($config, newsItem?.image ?? '')"
         :alt="newsItem?.image?.alternativeText ?? ''"
         class="block news-image mb-12"
+        sizes="100vw"
       />
 
       <div
