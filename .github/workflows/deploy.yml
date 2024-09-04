@@ -19,9 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-#      - name: Install sshpass
-#        run: sudo apt-get update && sudo apt-get install -y sshpass
-
       - name: Deploy to OVH VPS
         run: |
           sshpass -p "${{ env.PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ env.USER }}@${{ env.SERVER }} -p ${{ env.PORT }} "

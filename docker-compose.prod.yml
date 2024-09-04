@@ -6,6 +6,8 @@ services:
     volumes:
       - "./backend/public:/opt/app/public"
     restart: always
+    depends_on:
+      - strapiDB
     networks:
       - web
       - strapi-app
@@ -44,7 +46,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./etc/traefik.yml:/traefik.yml:ro
