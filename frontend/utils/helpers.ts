@@ -15,6 +15,8 @@ export const buildBackendImageUrl = (runtimeConfig: RuntimeConfig, image: string
         url = url.url
     }
 
+    console.log(runtimeConfig)
+
     return `${runtimeConfig.public.backendUrl}${url}`
 }
 

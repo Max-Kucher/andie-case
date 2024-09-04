@@ -6,7 +6,7 @@ LABEL authors="mkuch"
 ARG PORT=3000
 ARG HOST=0.0.0.0
 ARG NUXT_ENV_SITE_BACKEND_PRIVATE_URL="http://backend:1337"
-ARG NUXT_ENV_SITE_BACKEND_URL="http://localhost"
+ARG NUXT_ENV_SITE_BACKEND_URL="https://dollarlaw.live"
 
 ENV NODE_ENV=production
 ENV PORT=$PORT

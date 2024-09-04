@@ -16,7 +16,7 @@ const { t } = useI18n()
       </h1>
       <p
         v-if="error?.message?.length || error?.statusMessage?.length"
-        class="mt-4 text-base/7 text-gray-500 text-center"
+        class="mt-4 text-base/7 text-gray-500 text-center max-w-xl"
       >
         {{ error?.message?.length
             ? error.message
@@ -25,7 +25,7 @@ const { t } = useI18n()
 
       <ButtonsReadMore
         :to="{ name: 'index' }"
-        class="bg-accent mt-8"
+        class="bg-accent my-8"
       >
         {{ t('errors.goBackHome') }}
       </ButtonsReadMore>

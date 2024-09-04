@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   site: {
-    url: 'https://andy-case.com.ua',
+    url: 'https://dollarlaw.live/',
     name: 'Справа Andy',
     trailingSlash: false,
   },

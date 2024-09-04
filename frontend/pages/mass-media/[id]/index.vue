@@ -2,7 +2,6 @@
 import type OfficerIdGraphqlReq from '~/@types/Requests/MassMediaIdGraphqlReq'
 import type { NewsItem } from '~/@types/NewsItem'
 import type { ComponentPublicInstance } from 'vue'
-import {buildBackendImageUrl} from "~/utils/helpers";
 
 definePageMeta({
   pageTransition: false,

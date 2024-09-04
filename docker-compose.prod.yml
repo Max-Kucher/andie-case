@@ -25,13 +25,37 @@ services:
     image: nginx:alpine
     volumes:
       - ./etc/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - traefik
+    networks:
+      - web
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dollarlaw.rule=Host(`dollarlaw.live`) || Host(`www.dollarlaw.live`)"
+      - "traefik.http.routers.dollarlaw.entrypoints=websecure"
+      - "traefik.http.routers.dollarlaw.tls=true"
+      - "traefik.http.routers.dollarlaw.tls.certresolver=letencrypt"
+      - "traefik.http.services.dollarlaw.loadbalancer.server.port=80"
+
+  traefik:
+    image: traefik:v3.1.2
     ports:
       - "80:80"
       - "443:443"
-    depends_on:
-      - frontend
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./etc/traefik.yml:/traefik.yml:ro
+      - traefik-certs:/certs
     networks:
-      - web
+      - proxy
+
+volumes:
+  traefik-certs:
+    name: traefik-certs
 
 networks:
   web:
+  proxy:
