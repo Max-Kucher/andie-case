@@ -26,6 +26,9 @@ const { data } = await useAPI<{
         v-if="$slots.prevText"
         name="prevText"
       />
+      <template v-else>
+        {{ prevText }}
+      </template>
     </ButtonsPagination>
 
     <ButtonsPagination
@@ -35,9 +38,12 @@ const { data } = await useAPI<{
       is-next
     >
       <slot
-        v-if="$slots.prevText"
+        v-if="$slots.nextText"
         name="nextText"
       />
+      <template v-else>
+        {{ nextText }}
+      </template>
     </ButtonsPagination>
   </div>
 </template>
